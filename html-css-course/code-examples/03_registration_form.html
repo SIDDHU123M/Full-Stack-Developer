@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Registration Form</title>
+  <link rel="stylesheet" type="text/css" href="../02_basic_styling.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="registration_form.js"></script>
+</head>
+<body>
+  <h1>User Registration Form</h1>
+  <form id="registrationForm" action="submit_registration.php" method="POST">
+    <div>
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" required>
+    </div>
+    <div>
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName" required>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <div>
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" required>
+    </div>
+    <div>
+      <input type="submit" value="Register">
+    </div>
+  </form>
+</body>
+</html>
