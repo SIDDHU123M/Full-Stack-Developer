@@ -26,12 +26,69 @@ HTML provides a wide range of tags that allow us to structure and format our con
 - Headings (`<h1>` to `<h6>`): These are used to define the headings and subheadings of a webpage, with `<h1>` being the highest level and `<h6>` being the lowest.
 - Paragraphs (`<p>`): These are used to define paragraphs of text, providing semantic meaning to the content.
 - Links (`<a>`): These are used to create hyperlinks, allowing users to navigate between webpages.
-- Images (`<img>`): These are used to display images on a webpage, with attributes like `src`, `alt`, and dimensions.
+- Images (`<img>`): These are used to display images on a webpage, with attributes like [`src`](command:_github.copilot.openSymbolFromReferences?%5B%22%22%2C%5B%7B%22uri%22%3A%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fworkspaces%2FFull-Stack-Developer%2Fhtml-css-course%2Flessons%2F01_introduction_to_html.md%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%2C%22pos%22%3A%7B%22line%22%3A28%2C%22character%22%3A89%7D%7D%5D%2C%22becb93b0-704e-4a04-afa5-99cdcb51ef06%22%5D "Go to definition"), [`alt`](command:_github.copilot.openSymbolFromReferences?%5B%22%22%2C%5B%7B%22uri%22%3A%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fworkspaces%2FFull-Stack-Developer%2Fhtml-css-course%2Flessons%2F01_introduction_to_html.md%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%2C%22pos%22%3A%7B%22line%22%3A28%2C%22character%22%3A96%7D%7D%5D%2C%22becb93b0-704e-4a04-afa5-99cdcb51ef06%22%5D "Go to definition"), and dimensions.
 - Lists (`<ul>`, `<ol>`, `<li>`): These are used to create ordered and unordered lists, providing a structured way to present information.
+
+## Linking JavaScript
+
+JavaScript can be linked to an HTML document in several ways:
+
+1. **Inline JavaScript**: Adding JavaScript directly within HTML tags using the `onclick`, `onload`, etc., attributes.
+   ```html
+   <button onclick="alert('Hello, World!')">Click Me</button>
+   ```
+
+2. **Internal JavaScript**: Placing JavaScript code within a `<script>` tag inside the HTML document.
+   ```html
+   <!DOCTYPE html>
+   <html>
+   <head>
+     <title>Internal JavaScript Example</title>
+     <script>
+       function showMessage() {
+         alert('Hello, World!');
+       }
+     </script>
+   </head>
+   <body>
+     <button onclick="showMessage()">Click Me</button>
+   </body>
+   </html>
+   ```
+
+3. **External JavaScript**: Linking an external JavaScript file using the `<script>` tag with the [`src`](command:_github.copilot.openSymbolFromReferences?%5B%22%22%2C%5B%7B%22uri%22%3A%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fworkspaces%2FFull-Stack-Developer%2Fhtml-css-course%2Flessons%2F01_introduction_to_html.md%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%2C%22pos%22%3A%7B%22line%22%3A28%2C%22character%22%3A89%7D%7D%5D%2C%22becb93b0-704e-4a04-afa5-99cdcb51ef06%22%5D "Go to definition") attribute.
+   ```html
+   <!DOCTYPE html>
+   <html>
+   <head>
+     <title>External JavaScript Example</title>
+     <script src="script.js"></script>
+   </head>
+   <body>
+     <button onclick="showMessage()">Click Me</button>
+   </body>
+   </html>
+   ```
+
+   `script.js`:
+   ```javascript
+   function showMessage() {
+     alert('Hello, World!');
+   }
+   ```
+
+4. **Defer and Async Attributes**: These attributes can be used with the `<script>` tag to control the loading behavior of JavaScript files.
+   - `defer`: Ensures the script is executed after the HTML document has been completely parsed.
+   - `async`: Allows the script to be executed asynchronously as soon as it is available.
+
+   ```html
+   <script src="script.js" defer></script>
+   <script src="script.js" async></script>
+   ```
 
 ## Practical Examples
 
-Let's create a simple personal webpage to apply what we've learned so far. We will include headings, paragraphs, links, and images to create a basic structure for our webpage.
+Let's create a simple personal webpage to apply what we've learned so far. We will include headings, paragraphs, links, images, and a JavaScript function to enhance interactivity.
 
 ```html
 <!DOCTYPE html>
@@ -39,8 +96,13 @@ Let's create a simple personal webpage to apply what we've learned so far. We wi
 <head>
   <meta charset="UTF-8">
   <title>My Personal Webpage</title>
+  <script>
+    function showAlert() {
+      alert('Welcome to my personal webpage!');
+    }
+  </script>
 </head>
-<body>
+<body onload="showAlert()">
   <h1>Welcome to My Personal Webpage</h1>
   
   <h2>About Me</h2>
@@ -65,8 +127,11 @@ Let's create a simple personal webpage to apply what we've learned so far. We wi
 
 1. Build a webpage that includes a biography section with images and a list of hobbies.
 2. Implement a navigation menu using unordered lists.
+3. Add a JavaScript function that changes the background color of the webpage when a button is clicked.
 
 ## Additional Resources
 
 - [HTML Introduction - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction)
 - [HTML Tutorial - W3Schools](https://www.w3schools.com/html/)
+- [JavaScript Guide - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide)
+- [JavaScript Tutorial - W3Schools](https://www.w3schools.com/js/)
