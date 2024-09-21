@@ -51,6 +51,3 @@ Resources:
 - [React.js Documentation](https://reactjs.org/)
 - [Angular Documentation](https://angular.io/)
 - [Vue.js Documentation](https://vuejs.org/)
-```
-
-Please note that this is a sample content and you can modify it according to your specific needs.

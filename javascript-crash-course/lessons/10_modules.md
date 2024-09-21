@@ -136,6 +136,3 @@ console.log(reverse('world')); // Output: dlrow
 - [MDN Web Docs: JavaScript Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
 - [Node.js Modules](https://nodejs.org/api/modules.html)
 - [ES6 Modules](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/)
-```
-
-Please note that the examples and exercises provided are just placeholders. You can replace them with your own examples and exercises that align with your course content.

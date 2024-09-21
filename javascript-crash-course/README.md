@@ -89,6 +89,3 @@ The `code-examples/` directory contains practical code examples for each lesson.
 - [Jest](https://jestjs.io/): A popular JavaScript testing framework.
 
 Feel free to explore the lessons, code examples, and resources to enhance your understanding of JavaScript and its applications in full-stack development.
-```
-
-Please note that the contents provided are a general template and may need to be customized based on your specific requirements and preferences.

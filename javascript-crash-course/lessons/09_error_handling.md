@@ -118,6 +118,3 @@ console.log(calculateAverage(numbers));
 - [MDN Web Docs: Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
 - [MDN Web Docs: try...catch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch)
 - [MDN Web Docs: Debugging JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger)
-```
-
-Please let me know if you need help with anything else.

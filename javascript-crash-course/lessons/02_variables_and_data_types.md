@@ -68,6 +68,3 @@ let sum = 5 + '5'; // '55'
 - [MDN Web Docs: JavaScript Data Types and Data Structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
 - [MDN Web Docs: Type Conversion](https://developer.mozilla.org/en-US/docs/Glossary/Type_conversion)
 - [MDN Web Docs: Type Coercion](https://developer.mozilla.org/en-US/docs/Glossary/Type_coercion)
-```
-
-Please note that this is just a template and you can modify it according to your specific requirements.

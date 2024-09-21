@@ -54,6 +54,3 @@ Each topic will be accompanied by practical examples and exercises to reinforce 
 - [Node.js Debugger](https://nodejs.org/api/debugger.html)
 
 Now, let's dive into these advanced topics in JavaScript!
-```
-
-Please note that the resources provided are just examples and you can replace them with your preferred resources.
