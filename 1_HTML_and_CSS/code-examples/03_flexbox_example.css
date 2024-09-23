@@ -1,1 +1,13 @@
-/* This file is intentionally left blank */
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+}
+
+.item {
+    background-color: lightblue;
+    padding: 20px;
+    margin: 10px;
+    flex: 1; /* Flex items will grow to fill space */
+}

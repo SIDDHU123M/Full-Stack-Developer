@@ -199,6 +199,96 @@ CSS uses a specificity system to determine which styles are applied when multipl
 
 ---
 
+## CSS Selectors
+
+### Advanced Selectors
+- **Pseudo-classes:** Styles applied to elements in a specific state.
+  - `:hover`: Applies when the user hovers over an element.
+  - `:focus`: Applies when an element is focused (e.g., a text input).
+  - `:nth-child(n)`: Styles the nth child of a parent.
+
+  **Example:**
+  ```css
+  a:hover {
+    color: red;
+  }
+
+  input:focus {
+    border: 2px solid blue;
+  }
+
+  li:nth-child(2) {
+    background-color: lightgrey;
+  }
+  ```
+
+- **Pseudo-elements:** Styles a specific part of an element.
+  - `::before`: Inserts content before the element.
+  - `::after`: Inserts content after the element.
+
+  **Example:**
+  ```css
+  h1::before {
+    content: "Note: ";
+    font-weight: bold;
+  }
+  ```
+
+### Combining Selectors
+You can combine multiple selectors to apply the same styles to different elements.
+  
+**Example:**
+```css
+h1, h2, h3 {
+  font-family: Arial, sans-serif;
+}
+```
+
+### CSS Specificity
+CSS specificity determines which styles are applied when multiple rules match an element. The order of importance is as follows:
+1. Inline styles
+2. IDs
+3. Classes, attributes, and pseudo-classes
+4. Elements and pseudo-elements
+
+**Example:**
+```html
+<style>
+  p {
+    color: blue; /* Low specificity */
+  }
+
+  .important {
+    color: red; /* Higher specificity */
+  }
+
+  #unique {
+    color: green; /* Highest specificity */
+  }
+</style>
+<p class="important" id="unique">This text will be green.</p>
+```
+
+### CSS Units
+- **`px`**: Absolute unit, fixed size.
+- **`em`**: Relative to the font-size of the element (1em = current font-size).
+- **`rem`**: Relative to the root element’s font-size (1rem = font-size of `<html>`).
+- **`%`**: Relative to the parent element's size.
+
+**Example:**
+```css
+.container {
+  width: 80%;  /* Responsive width */
+  padding: 1em;  /* Scales with font size */
+}
+
+h1 {
+  font-size: 2rem;  /* Double the root font size */
+}
+```
+
+---
+
 ## Best Practices for CSS:
 
 1. **Organize Your Styles:**
