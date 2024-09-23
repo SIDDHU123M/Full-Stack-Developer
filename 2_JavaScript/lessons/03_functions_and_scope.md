@@ -1,14 +1,14 @@
-# Functions in JavaScript
+## Functions and Scope in JavaScript
 
-## Introduction
+### Introduction
 
 Functions are one of the fundamental building blocks in JavaScript. They allow you to encapsulate code into reusable blocks, making your code modular and easier to maintain. A function is a block of code designed to perform a particular task. You can define a function once and call it multiple times throughout your code.
 
-## Defining Functions
+### Defining Functions
 
 In JavaScript, functions can be defined in several ways:
 
-### Function Declaration
+#### Function Declaration
 
 A function declaration defines a function with a specified name.
 
@@ -18,7 +18,7 @@ function greet() {
 }
 ```
 
-### Function Expression
+#### Function Expression
 
 A function expression defines a function within an expression. This can be anonymous or named.
 
@@ -28,11 +28,11 @@ const greet = function() {
 };
 ```
 
-### Arrow Functions (ES6 Feature)
+#### Arrow Functions (ES6 Feature)
 
 Arrow functions provide a shorter syntax for writing function expressions and were introduced in ES6. They do not have their own `this` context, making them especially useful for preserving the context of `this` in callbacks.
 
-#### Syntax
+##### Syntax
 
 ```javascript
 const greet = () => {
@@ -40,7 +40,7 @@ const greet = () => {
 };
 ```
 
-#### Implicit Return
+##### Implicit Return
 
 If the arrow function has only one expression, you can omit the braces and the `return` keyword, allowing for a more concise syntax.
 
@@ -49,7 +49,7 @@ const add = (a, b) => a + b;
 console.log(add(2, 3)); // Output: 5
 ```
 
-#### Automatic Binding of `this`
+##### Automatic Binding of `this`
 
 In traditional function expressions, the value of `this` is determined by how the function is called. However, in arrow functions, `this` is lexically bound, meaning it retains the value of `this` from the enclosing scope.
 
@@ -89,11 +89,11 @@ counter.increment(); // Output: 1
 
 While using arrow functions as methods can help preserve the context of `this`, it is generally recommended to use regular function syntax for class methods to allow for method overriding and inheritance.
 
-## Immediately Invoked Function Expressions (IIFE)
+### Immediately Invoked Function Expressions (IIFE)
 
 An Immediately Invoked Function Expression (IIFE) is a function that is executed immediately after its creation. It helps in creating a new scope and is commonly used to avoid polluting the global namespace.
 
-### Syntax
+#### Syntax
 
 ```javascript
 (function() {
@@ -101,7 +101,7 @@ An Immediately Invoked Function Expression (IIFE) is a function that is executed
 })();
 ```
 
-### Benefits of IIFE
+#### Benefits of IIFE
 
 1. **Encapsulation**: Variables declared inside an IIFE are not accessible from the outside, which helps in avoiding conflicts with other variables.
    
@@ -128,7 +128,7 @@ counterModule.increment(); // Output: 2
 counterModule.decrement(); // Output: 1
 ```
 
-## Calling Functions
+### Calling Functions
 
 Once a function is defined, you can call it by using its name followed by parentheses.
 
@@ -136,9 +136,9 @@ Once a function is defined, you can call it by using its name followed by parent
 greet(); // Output: Hello, World!
 ```
 
-## Parameters and Arguments
+### Parameters and Arguments
 
-### Defining Parameters
+#### Defining Parameters
 
 Functions can accept parameters, which are placeholders for the values you pass to the function when you call it. These parameters act as variables inside the function.
 
@@ -148,7 +148,7 @@ function greet(name) {
 }
 ```
 
-### Calling with Arguments
+#### Calling with Arguments
 
 When you call a function, you can provide arguments that correspond to the parameters defined in the function.
 
@@ -156,7 +156,7 @@ When you call a function, you can provide arguments that correspond to the param
 greet("Alice"); // Output: Hello, Alice!
 ```
 
-### Default Parameters
+#### Default Parameters
 
 JavaScript allows you to specify default values for parameters. If no argument is provided for a parameter, the default value will be used.
 
@@ -169,7 +169,7 @@ greet(); // Output: Hello, Guest!
 greet("Bob"); // Output: Hello, Bob!
 ```
 
-### Rest Parameters
+#### Rest Parameters
 
 You can also define a function that accepts an indefinite number of arguments using the rest parameter syntax. This is represented by three dots (`...`) before the parameter name.
 
@@ -182,7 +182,7 @@ console.log(sum(1, 2, 3)); // Output: 6
 console.log(sum(1, 2, 3, 4, 5)); // Output: 15
 ```
 
-## Return Statement
+### Return Statement
 
 Functions can return a value using the `return` statement. This allows you to output a value from the function to the caller.
 
@@ -194,7 +194,7 @@ function add(a, b) {
 const sum = add(5, 3); // sum = 8
 ```
 
-## Scope of Functions
+### Scope of Functions
 
 Functions create their own scope. Variables defined within a function are not accessible from outside that function.
 
@@ -208,11 +208,11 @@ example(); // Output: I am inside the function!
 // console.log(insideVariable); // ReferenceError: insideVariable is not defined
 ```
 
-## Higher-Order Functions
+### Higher-Order Functions
 
 Higher-order functions are functions that take other functions as arguments or return functions as their result. They are a powerful feature of JavaScript.
 
-### Example: Using `map`
+#### Example: Using `map`
 
 The `map` method is a higher-order function that creates a new array populated with the results of calling a provided function on every element in the calling array.
 
@@ -222,22 +222,16 @@ const doubled = numbers.map(num => num * 2);
 console.log(doubled); // Output: [2, 4, 6, 8]
 ```
 
-## Conclusion
+### Conclusion
 
-Understanding functions is crucial for effective JavaScript programming. They promote code reusability and help in organizing code better. By using functions effectively, you can write cleaner and more maintainable code.
+Understanding functions and scope is crucial for effective JavaScript programming. They promote code reusability and help in organizing code better. By using functions effectively, you can write cleaner and more maintainable code.
 
-## Resources
+### Resources
 
 - [MDN Web Docs - Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
 - [JavaScript.info - Functions](https://javascript.info/function-basics)
-- [W3Schools - JavaScript Functions](https://www.w3schools.com/js/js_functions.asp)
-
-## Suggestions
-
-- Experiment with writing your own functions to solidify your understanding.
-- Explore built-in JavaScript functions and practice using them.
 
 ## Next Steps
 
-- Learn about objects and arrays in the next lesson.
-- Next Lesson >> [Objects and Arrays](04_js_objects_and_arrays.md)
+- Learn about missing things which needs to be covered further.
+- Next Lesson >> [Missed Topics](04_Missed_things.md) 
