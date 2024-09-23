@@ -2,188 +2,169 @@
 This repository offers a comprehensive crash course for aspiring full-stack developers. Covering essential technologies like HTML, CSS, JavaScript, Node.js, and more, this course provides structured lessons, practical code examples, and best practices. Dive in to build your skills and create modern web applications!
 
 ```
-FullStackDeveloperCourse/
-├── README.md
-├── 1_HTML_and_CSS/
+├── 1_HTML_and_CSS
 │   ├── README.md
-│   ├── lessons/
-│   │   ├── introduction_to_html.md
-│   │   ├── html_elements_and_structure.md
-│   │   ├── css_syntax_and_selectors.md
-│   │   ├── layout_techniques.md
-│   │   ├── responsive_design.md
-│   │   ├── accessibility_in_web.md
-│   │   └── best_practices.md
-│   ├── code-examples/
-│   │   ├── basic_html_structure.html
-│   │   ├── css_box_model.css
-│   │   ├── flexbox_example.css
-│   │   ├── grid_layout_example.html
-│   │   └── responsive_layout_example.html
-│   ├── projects/
-│   │   ├── personal_website/
-│   │   │   ├── index.html
-│   │   │   ├── style.css
-│   │   │   └── README.md
-│   │   └── portfolio/
-│   │       ├── index.html
-│   │       ├── style.css
-│   │       └── README.md
-├── 2_JavaScript/
+│   ├── code-examples
+│   │   ├── 01_basic_html_structure.html
+│   │   ├── 02_css_box_model.css
+│   │   ├── 03_flexbox_example.css
+│   │   ├── 04_grid_layout_example.html
+│   │   └── 05_responsive_layout_example.html
+│   ├── lessons
+│   │   ├── 01_introduction_to_html.md
+│   │   ├── 02_html_elements_and_structure.md
+│   │   ├── 03_css_syntax_and_selectors.md
+│   │   ├── 04_layout_techniques.md
+│   │   ├── 05_responsive_design.md
+│   │   ├── 06_accessibility_in_web.md
+│   │   ├── 07_best_practices.md
+│   │   └── image.png
+│   └── projects
+│       ├── personal_website
+│       │   ├── README.md
+│       │   ├── index.html
+│       │   └── style.css
+│       └── portfolio
+│           ├── README.md
+│           ├── index.html
+│           └── style.css
+├── 2_JavaScript
 │   ├── README.md
-│   ├── lessons/
-│   │   ├── introduction_to_javascript.md
-│   │   ├── variables_and_data_types.md
-│   │   ├── functions_and_scope.md
-│   │   ├── objects_and_arrays.md
-│   │   ├── control_flow.md
-│   │   ├── dom_manipulation.md
-│   │   └── event_handling.md
-│   ├── code-examples/
-│   │   ├── variables_example.js
-│   │   ├── functions_example.js
-│   │   ├── dom_example.js
-│   │   └── event_example.js
-│   ├── projects/
-│   │   ├── interactive_to_do_list/
-│   │   │   ├── index.html
-│   │   │   ├── style.css
-│   │   │   ├── script.js
-│   │   │   └── README.md
-│   │   └── quiz_game/
-│   │       ├── index.html
-│   │       ├── style.css
-│   │       ├── script.js
-│   │       └── README.md
-├── 3_TypeScript/
+│   ├── lessons
+│   │   ├── 01_intro_to_javascript.md
+│   │   ├── 02_variables_and_data_types.md
+│   │   ├── 03_functions_and_scope.md
+│   │   ├── 04_Missed_things.md
+│   │   ├── 05_js_objects_and_arrays.md
+│   │   ├── 06_js_classes_and_oop.md
+│   │   ├── 07_js_async.md
+│   │   ├── 08_js_error_handling.md
+│   │   ├── 09_js_modules.md
+│   │   └── 10_js_async_programming.md
+│   └── projects
+│       ├── interactive_to_do_list
+│       │   ├── README.md
+│       │   ├── index.html
+│       │   ├── script.js
+│       │   └── style.css
+│       └── quiz_game
+│           ├── README.md
+│           ├── index.html
+│           ├── script.js
+│           └── style.css
+├── 3_TypeScript
 │   ├── README.md
-│   ├── lessons/
-│   │   ├── introduction_to_typescript.md
-│   │   ├── types_and_interfaces.md
-│   │   ├── classes_and_objects.md
-│   │   ├── functions_in_typescript.md
-│   │   └── advanced_types.md
-│   ├── code-examples/
-│   │   ├── basic_types_example.ts
-│   │   ├── class_example.ts
-│   │   └── interface_example.ts
-│   ├── projects/
-│   │   ├── task_manager_app/
-│   │   │   ├── index.ts
-│   │   │   └── README.md
-│   │   └── ecommerce_website/
-│   │       ├── index.ts
-│   │       └── README.md
-├── 4_NodeJS/
+│   ├── code-examples
+│   │   ├── 01_basic_types_example.ts
+│   │   ├── 02_class_example.ts
+│   │   └── 03_interface_example.ts
+│   ├── lessons
+│   │   ├── 01_introduction_to_typescript.md
+│   │   ├── 02_types_and_interfaces.md
+│   │   ├── 03_classes_and_objects.md
+│   │   ├── 04_functions_in_typescript.md
+│   │   └── 05_advanced_types.md
+│   └── projects
+│       ├── ecommerce_website
+│       │   ├── README.md
+│       │   └── index.ts
+│       └── task_manager_app
+│           ├── README.md
+│           └── index.ts
+├── 4_NodeJS
 │   ├── README.md
-│   ├── lessons/
-│   │   ├── introduction_to_nodejs.md
-│   │   ├── setting_up_node_environment.md
-│   │   ├── modules_and_npm.md
-│   │   ├── file_system_module.md
-│   │   ├── express_js_intro.md
-│   │   └── creating_a_simple_api.md
-│   ├── code-examples/
-│   │   ├── basic_server.js
-│   │   ├── file_reading_example.js
-│   │   └── express_api_example.js
-│   ├── projects/
-│   │   ├── rest_api/
-│   │   │   ├── app.js
-│   │   │   └── README.md
-│   │   └── real_time_chat_app/
-│   │       ├── app.js
-│   │       └── README.md
-├── 5_ReactJS/
+│   ├── code-examples
+│   │   ├── 01_basic_server.js
+│   │   ├── 02_file_reading_example.js
+│   │   └── 03_express_api_example.js
+│   ├── lessons
+│   │   ├── 01_introduction_to_nodejs.md
+│   │   ├── 02_setting_up_node_environment.md
+│   │   ├── 03_modules_and_npm.md
+│   │   ├── 04_file_system_module.md
+│   │   ├── 05_express_js_intro.md
+│   │   └── 06_creating_a_simple_api.md
+│   └── projects
+│       ├── real_time_chat_app
+│       │   ├── README.md
+│       │   └── app.js
+│       └── rest_api
+│           ├── README.md
+│           └── app.js
+├── 5_ReactJS
 │   ├── README.md
-│   ├── lessons/
-│   │   ├── introduction_to_react.md
-│   │   ├── components_and_props.md
-│   │   ├── state_and_lifecycle.md
-│   │   ├── handling_events.md
-│   │   └── conditional_rendering.md
-│   ├── code-examples/
-│   │   ├── basic_component.jsx
-│   │   ├── stateful_component.jsx
-│   │   ├── event_handling_example.jsx
-│   └── projects/
-│       ├── task_tracker/
+│   ├── code-examples
+│   │   ├── 01_basic_component.jsx
+│   │   ├── 02_stateful_component.jsx
+│   │   └── 03_event_handling_example.jsx
+│   ├── lessons
+│   │   ├── 01_introduction_to_react.md
+│   │   ├── 02_components_and_props.md
+│   │   ├── 03_state_and_lifecycle.md
+│   │   ├── 04_handling_events.md
+│   │   └── 05_conditional_rendering.md
+│   └── projects
+│       ├── ecommerce_website
 │       │   ├── App.jsx
-│       │   ├── style.css
-│       │   └── README.md
-│       └── ecommerce_website/
+│       │   ├── README.md
+│       │   └── style.css
+│       └── task_tracker
 │           ├── App.jsx
-│           ├── style.css
-│           └── README.md
-├── 6_Python/
+│           ├── README.md
+│           └── style.css
+├── 6_Python
 │   ├── README.md
-│   ├── lessons/
-│   │   ├── introduction_to_python.md
-│   │   ├── variables_and_data_types.md
-│   │   ├── functions_in_python.md
-│   │   ├── working_with_files.md
-│   │   ├── error_handling.md
-│   │   └── object_oriented_programming.md
-│   ├── code-examples/
-│   │   ├── basic_script.py
-│   │   ├── file_handling.py
-│   │   ├── class_example.py
-│   └── projects/
-│       ├── task_manager/
-│       │   ├── main.py
-│       │   └── README.md
-│       └── blog_application/
-│           ├── main.py
-│           └── README.md
-├── 7_PHP/
+│   ├── code-examples
+│   │   ├── 01_basic_script.py
+│   │   ├── 02_file_handling.py
+│   │   └── 03_class_example.py
+│   ├── lessons
+│   │   ├── 01_introduction_to_python.md
+│   │   ├── 02_variables_and_data_types.md
+│   │   ├── 03_functions_in_python.md
+│   │   ├── 04_working_with_files.md
+│   │   ├── 05_error_handling.md
+│   │   └── 06_object_oriented_programming.md
+│   └── projects
+│       ├── blog_application
+│       │   ├── README.md
+│       │   └── main.py
+│       └── task_manager
+│           ├── README.md
+│           └── main.py
+├── 7_PHP
 │   ├── README.md
-│   ├── lessons/
-│   │   ├── introduction_to_php.md
-│   │   ├── working_with_forms.md
-│   │   ├── session_and_cookie_handling.md
-│   │   └── object_oriented_php.md
-│   ├── code-examples/
-│   │   ├── basic_form_handling.php
-│   │   ├── session_example.php
-│   └── projects/
-│       ├── content_management_system/
-│       │   ├── index.php
-│       │   └── README.md
-│       └── blog_application/
-│           ├── index.php
-│           └── README.md
-├── 8_SQL/
+│   ├── code-examples
+│   │   ├── 01_basic_form_handling.php
+│   │   └── 02_session_example.php
+│   ├── lessons
+│   │   ├── 01_introduction_to_php.md
+│   │   ├── 02_working_with_forms.md
+│   │   ├── 03_session_and_cookie_handling.md
+│   │   └── 04_object_oriented_php.md
+│   └── projects
+│       ├── blog_application
+│       │   ├── README.md
+│       │   └── index.php
+│       └── content_management_system
+│           ├── README.md
+│           └── index.php
+├── 9_Git
 │   ├── README.md
-│   ├── lessons/
-│   │   ├── introduction_to_sql.md
-│   │   ├── basic_queries.md
-│   │   ├── joins_and_relationships.md
-│   │   └── database_design.md
-│   ├── code-examples/
-│   │   ├── create_table.sql
-│   │   ├── basic_select.sql
-│   │   └── join_example.sql
-│   └── projects/
-│       ├── ecommerce_database/
-│       │   ├── schema.sql
-│       │   └── README.md
-│       └── blog_database/
-│           ├── schema.sql
-│           └── README.md
-├── 9_Git/
-│   ├── README.md
-│   ├── lessons/
-│   │   ├── introduction_to_git.md
-│   │   ├── git_workflow.md
-│   │   ├── branching_and_merging.md
-│   │   └── resolving_merge_conflicts.md
-│   ├── code-examples/
-│   │   ├── git_init_example.sh
-│   │   ├── git_branch_example.sh
-│   └── projects/
-│       ├── version_control_project/
-│       │   ├── project_files/
-│       │   └── README.md
-│       └── collaborative_project/
-│           ├── project_files/
-│           └── README.md
+│   ├── code-examples
+│   │   ├── 01_git_init_example.sh
+│   │   └── 02_git_branch_example.sh
+│   ├── lessons
+│   │   ├── 01_introduction_to_git.md
+│   │   ├── 02_git_workflow.md
+│   │   ├── 03_branching_and_merging.md
+│   │   └── 04_resolving_merge_conflicts.md
+│   └── projects
+│       ├── collaborative_project
+│       │   ├── README.md
+│       │   └── project_files
+│       └── version_control_project
+│           ├── README.md
+│           └── project_files
+├── README.md
+└── Text.MD
