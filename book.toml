@@ -31,12 +31,16 @@ target = "html"  # Target format
 [output]
 default-theme = "dark"  # Theme for output
 highlight = true  # Enable syntax highlighting
-additional-css = ["custom.css"]  # Additional CSS files
 search = { enabled = true }  # Enable search functionality
 
 # Optional: Custom settings
 [theme]
 name = "default"  # You can change this to other themes as needed
+
+[output.additional-css]
+additional-css = ["custom.css"]
+optional = true
+
 
 # Enable or disable features
 [features]
