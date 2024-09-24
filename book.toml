@@ -10,6 +10,8 @@ keywords = ["full-stack", "developer", "course", "programming", "web development
 multilingual = false
 
 # Specify chapters in order
+[book.src]
+# If this isn't where your chapters are, ensure the paths are correct
 chapters = [
     { title = "HTML and CSS", path = "src/1_HTML_and_CSS/README.md" },
     { title = "JavaScript", path = "src/2_JavaScript/README.md" },
@@ -25,5 +27,14 @@ chapters = [
 # Build settings
 [build]
 build-dir = "output"  # Directory for output HTML files
-target = "html"  # Target format
+target = "html"       # Target format for the output (HTML)
+
+# Output settings
+[output.html]
+default-theme = "dark"    # Theme for output (set this based on your needs)
+highlight = true          # Enable syntax highlighting
+search = { enabled = true }  # Enable search functionality
+
+# Optional: Setting themes or additional CSS can be added here
+# Additional configurations if needed
 
