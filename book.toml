@@ -16,9 +16,12 @@ target = "html"  # Target format
 
 # Output settings
 [output]
-default-theme = "dark"  # Theme for output
 highlight = true  # Enable syntax highlighting
 search = { enabled = true }  # Enable search functionality
+
+[output.default-theme]
+default-theme = "dark"  # Theme for output
+optional = true
 
 # Enable or disable features
 [features]
