@@ -1,18 +1,20 @@
 [book]
 title = "Full Stack Developer Course"
-author = "Your Name"
+author = "Sidhartha "
 description = "A comprehensive course on HTML, CSS, JavaScript, Node.js, and more."
 language = "en"
 multilingual = false
 
 [output.html]
-default-theme = "light"
+default-theme = "dark"
 highlight = true
-search = true
-mathjax-support = false
-
-# Linking to the custom CSS file (located in the root directory)
+[output.html]
 additional-css = ["custom.css"]
+search = { enabled = true }
+
+[build]
+create-missing = true
+mathjax-support = false
 
 [output.html.playground]
 copy-button = true
