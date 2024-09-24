@@ -15,8 +15,9 @@ build-dir = "output"  # Directory for output HTML files
 target = "html"  # Target format
 
 # Output settings
-[output]
+[output.search]
 search = { enabled = true }  # Enable search functionality
+optional = true
 
 [output.default-theme]
 default-theme = "dark"  # Theme for output
