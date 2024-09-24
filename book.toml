@@ -9,19 +9,6 @@ language = "en"
 keywords = ["full-stack", "developer", "course", "programming", "web development"]
 multilingual = false
 
-# Specify chapters in order (simplified to paths only)
-src = [
-    "src/1_HTML_and_CSS/README.md",
-    "src/2_JavaScript/README.md",
-    "src/3_TypeScript/README.md",
-    "src/4_NodeJS/README.md",
-    "src/5_ExpressJS/README.md",
-    "src/6_Python/README.md",
-    "src/7_PHP/README.md",
-    "src/8_ReactJS/README.md",
-    "src/9_Git/README.md"
-]
-
 # Build settings
 [build]
 build-dir = "output"  # Directory for output HTML files
