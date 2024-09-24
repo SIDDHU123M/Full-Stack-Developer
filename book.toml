@@ -1,1 +1,22 @@
-# This file is intentionally left blank.
+[book]
+title = "Full Stack Developer Course"
+author = "Your Name"
+description = "A comprehensive course on HTML, CSS, JavaScript, Node.js, and more."
+language = "en"
+multilingual = false
+
+[output.html]
+default-theme = "light"
+highlight = true
+search = true
+mathjax-support = false
+
+# Linking to the custom CSS file (located in the root directory)
+additional-css = ["custom.css"]
+
+[output.html.playground]
+copy-button = true
+
+# Optional: Draft configuration to exclude in-progress sections
+[draft]
+include = false
