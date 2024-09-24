@@ -33,10 +33,6 @@ default-theme = "dark"  # Theme for output
 highlight = true  # Enable syntax highlighting
 search = { enabled = true }  # Enable search functionality
 
-# Optional: Custom settings
-[theme]
-name = "default"  # You can change this to other themes as needed
-
 # Enable or disable features
 [features]
 mathjax = true  # If you need math support
