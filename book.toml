@@ -16,12 +16,17 @@ target = "html"  # Target format
 
 # Output settings
 [output]
-highlight = true  # Enable syntax highlighting
 search = { enabled = true }  # Enable search functionality
 
 [output.default-theme]
 default-theme = "dark"  # Theme for output
 optional = true
+
+[output.highlight]
+highlight = true  # Enable syntax highlighting
+optional = true
+
+
 
 # Enable or disable features
 [features]
