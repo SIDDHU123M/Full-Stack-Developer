@@ -29,7 +29,6 @@ target = "html"  # Target format
 
 # Output settings (moved from [output.html])
 [output]
-highlight = true  # Enable syntax highlighting
 search = { enabled = true }  # Enable search functionality
 
 # Enable or disable features
