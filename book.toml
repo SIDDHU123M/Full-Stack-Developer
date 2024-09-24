@@ -1,6 +1,6 @@
 [book]
 title = "Full Stack Developer Course"
-author = "Sidhartha "
+author = "Sidhartha"
 description = "A comprehensive course on HTML, CSS, JavaScript, Node.js, and more."
 language = "en"
 multilingual = false
@@ -8,7 +8,6 @@ multilingual = false
 [output.html]
 default-theme = "dark"
 highlight = true
-[output.html]
 additional-css = ["custom.css"]
 search = { enabled = true }
 
