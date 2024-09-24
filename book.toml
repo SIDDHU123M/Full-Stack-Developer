@@ -27,11 +27,3 @@ chapters = [
 build-dir = "output"  # Directory for output HTML files
 target = "html"  # Target format
 
-# Output settings (moved from [output.html])
-[output]
-search = { enabled = true }  # Enable search functionality
-
-# Enable or disable features
-[features]
-mathjax = true  # If you need math support
-syntax_highlighting = true  # For code highlighting
