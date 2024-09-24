@@ -2,7 +2,7 @@
 What is Node.js? Why use it? Key features and architecture.
 
 
-```python
+
 # Introduction to Node.js
 
 ## What is Node.js?
