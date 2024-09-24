@@ -1,23 +1,54 @@
-[book]
-title = "Full Stack Developer Course"
+# Book.toml for converting Markdown to HTML
+
+# Basic information about the book
+title = "Full-Stack Developer Course"
 author = "Sidhartha"
-description = "A comprehensive course on HTML, CSS, JavaScript, Node.js, and more."
+description = "A comprehensive course for aspiring full-stack developers."
 language = "en"
+keywords = ["full-stack", "developer", "course", "programming", "web development"]
+
+# Output settings
+output_dir = "output"  # Directory for output HTML files
+output_format = "html"  # Output format
+
+# Table of contents
+[book]
 multilingual = false
 
+# Specify chapters in order
+[book.chapters]
+chapters = [
+    { title = "HTML and CSS", path = "src/1_HTML_and_CSS/README.md" },
+    { title = "JavaScript", path = "src/2_JavaScript/README.md" },
+    { title = "TypeScript", path = "src/3_TypeScript/README.md" },
+    { title = "Node.js", path = "src/4_NodeJS/README.md" },
+    { title = "Express.js", path = "src/5_ExpressJS/README.md" },
+    { title = "Python", path = "src/6_Python/README.md" },
+    { title = "PHP", path = "src/7_PHP/README.md" },
+    { title = "React.js", path = "src/8_ReactJS/README.md" },
+    { title = "Git", path = "src/9_Git/README.md" }
+]
+
+# Stylesheet and scripts (if any)
 [output.html]
 default-theme = "dark"
 highlight = true
 additional-css = ["custom.css"]
 search = { enabled = true }
 
+# Optional: Custom settings
+[theme]
+name = "default"  # You can change this to other themes as needed
+
+# Enable or disable features
+[features]
+mathjax = true  # If you need math support
+syntax_highlighting = true  # For code highlighting
+
+# Set the default layout
+[layout]
+default = "default"  # Layout for the HTML output
+
+# Build settings
 [build]
-create-missing = true
-mathjax-support = false
-
-[output.html.playground]
-copy-button = true
-
-# Optional: Draft configuration to exclude in-progress sections
-[draft]
-include = false
+target = "html"  # Target format
