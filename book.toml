@@ -37,11 +37,6 @@ search = { enabled = true }  # Enable search functionality
 [theme]
 name = "default"  # You can change this to other themes as needed
 
-[output.additional-css]
-additional-css = ["custom.css"]
-optional = true
-
-
 # Enable or disable features
 [features]
 mathjax = true  # If you need math support
