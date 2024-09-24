@@ -37,12 +37,6 @@ jobs:
           rustup update
           cargo install mdbook --version ${MDBOOK_VERSION}
 
-      # Install any additional backends (if required)
-      - name: Install additional mdBook backends (optional)
-        run: |
-          cargo install mdbook-default-theme
-          cargo install mdbook-additional-css
-
       # Setup GitHub Pages
       - name: Setup Pages
         id: pages
