@@ -9,32 +9,31 @@ language = "en"
 keywords = ["full-stack", "developer", "course", "programming", "web development"]
 multilingual = false
 
-# Specify chapters in order
-[book.src]
-# If this isn't where your chapters are, ensure the paths are correct
-chapters = [
-    { title = "HTML and CSS", path = "src/1_HTML_and_CSS/README.md" },
-    { title = "JavaScript", path = "src/2_JavaScript/README.md" },
-    { title = "TypeScript", path = "src/3_TypeScript/README.md" },
-    { title = "Node.js", path = "src/4_NodeJS/README.md" },
-    { title = "Express.js", path = "src/5_ExpressJS/README.md" },
-    { title = "Python", path = "src/6_Python/README.md" },
-    { title = "PHP", path = "src/7_PHP/README.md" },
-    { title = "React.js", path = "src/8_ReactJS/README.md" },
-    { title = "Git", path = "src/9_Git/README.md" }
+# Specify chapters in order (simplified to paths only)
+src = [
+    "src/1_HTML_and_CSS/README.md",
+    "src/2_JavaScript/README.md",
+    "src/3_TypeScript/README.md",
+    "src/4_NodeJS/README.md",
+    "src/5_ExpressJS/README.md",
+    "src/6_Python/README.md",
+    "src/7_PHP/README.md",
+    "src/8_ReactJS/README.md",
+    "src/9_Git/README.md"
 ]
 
 # Build settings
 [build]
 build-dir = "output"  # Directory for output HTML files
-target = "html"       # Target format for the output (HTML)
+target = "html"  # Target format
 
 # Output settings
-[output.html]
-default-theme = "dark"    # Theme for output (set this based on your needs)
-highlight = true          # Enable syntax highlighting
+[output]
+default-theme = "dark"  # Theme for output
+highlight = true  # Enable syntax highlighting
 search = { enabled = true }  # Enable search functionality
 
-# Optional: Setting themes or additional CSS can be added here
-# Additional configurations if needed
-
+# Enable or disable features
+[features]
+mathjax = true  # If you need math support
+syntax_highlighting = true  # For code highlighting
