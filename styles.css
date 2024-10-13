@@ -49,6 +49,10 @@ body {
   transition: color 0.4s;
 }
 
+#data p {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 1.2em;
+}
 .button .icon {
   width: 24px;
   height: 24px;
@@ -128,7 +132,7 @@ header svg {
 
 /* Data Section Styling */
 #data img, figure {
-  width: 100%;
+  width: 65%;
   margin: 10px !important;
 }
 
@@ -216,8 +220,12 @@ body.dark-mode .button:hover .text {
   color: #fff;
 }
 
-body.dark-mode #data h1 {
+body.dark-mode #data h1, body.dark-mode, body.dark-mode #data h4 {
   color: #e0e0e0;
+}
+
+body.dark-mode #data h3 {
+  color: gold;
 }
 
 body.dark-mode #data div {
@@ -272,7 +280,7 @@ body.light-mode .button:hover .text {
   color: #000000;
 }
 
-body.light-mode #data h1 {
+body.light-mode #data h1, body.light-mode #data h3, body.light-mode #data h4 {
   color: #000000;
 }
 
