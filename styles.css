@@ -128,7 +128,7 @@ header svg {
 
 /* Data Section Styling */
 #data img, figure {
-  width: 65%;
+  width: 100%;
   margin: 10px !important;
 }
 
@@ -149,6 +149,9 @@ header svg {
 /* Pagination Controls */
 #pagination-controls {
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 #pagination-controls button {
@@ -156,7 +159,6 @@ header svg {
   color: white;
   border: none;
   padding: 10px 20px;
-  margin: 5px;
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s, transform 0.3s;
@@ -173,14 +175,14 @@ header svg {
     padding: 5px;
   }
 
-  #data img, figure {
-    width: 100%;
-    margin: 10px !important;
-  }
-
   header {
     flex-direction: column;
     gap: 0.8em;
+  }
+
+  #data img, figure {
+    width: 100%;
+    margin: 10px !important;
   }
 }
 
@@ -237,6 +239,15 @@ body.dark-mode code {
   color: #c5c5c5;
 }
 
+body.dark-mode a {
+  color: #1e90ff;
+  text-decoration: underline;
+}
+
+body.dark-mode a:hover {
+  color: #63a4ff;
+}
+
 /* Light Mode Styles */
 body.light-mode {
   background: #ffffff;
@@ -282,4 +293,13 @@ body.light-mode #pagination-controls button:hover {
 body.light-mode code {
   background-color: #f5f5f5;
   color: #000000;
+}
+
+body.light-mode a {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+body.light-mode a:hover {
+  color: #0056b3;
 }
