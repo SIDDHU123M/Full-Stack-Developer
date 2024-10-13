@@ -185,7 +185,7 @@ header svg {
   }
 
   #data img, figure {
-    width: 100%;
+    width: 65%;
     margin: 10px !important;
   }
 }
