@@ -6,6 +6,7 @@ const itemsPerPage = 5;
 
 async function getData(item, page = 1) {
   try {
+    div.innerHTML = "<p>Loading...</p>"; // Add loading indicator
     let newObj = [];
     let response = await fetch("ConvertedFiles/united.json");
     if (!response.ok) {
@@ -18,7 +19,6 @@ async function getData(item, page = 1) {
     let paginatedData = data[item].slice(start, end);
 
     paginatedData.forEach((jsonData) => {
-      // Replace nested <code> tags with placeholders
       let content = jsonData.content.replace(/<code>(.*?)<\/code>/g, (match, p1) => {
         return `{{CODE_BLOCK_START}}${p1}{{CODE_BLOCK_END}}`;
       });
@@ -26,13 +26,12 @@ async function getData(item, page = 1) {
       newObj.push({
         title: jsonData.title,
         content: content,
-        code: jsonData.code || "", // Assuming code is part of the JSON data
+        code: jsonData.code || "",
       });
     });
 
     div.innerHTML = "";
     newObj.forEach((element) => {
-      // Restore placeholders with <code> tags
       let contentWithCode = element.content.replace(/{{CODE_BLOCK_START}}/g, "").replace(/{{CODE_BLOCK_END}}/g, "");
       div.innerHTML += `
               <h1>${element.title}</h1>
