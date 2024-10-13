@@ -15,11 +15,14 @@
 <body class="light-mode">
   <header>
     <h1>Full Stack Development</h1>
-    <svg id="theme-toggle" class="theme-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path fill="currentColor"
-        d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5l1.43 1.43L4.93 20.5L3.5 19.07zm-6.18 2.43L11.41 5L9.97 6l.42-1.7L9 3.24l1.75-.12l.58-1.65L12 3.1l1.73.03l-1.35 1.13zm-3.3 3.61l-1.16-.73l-1.12.78l.34-1.32l-1.09-.83l1.36-.09l.45-1.29l.51 1.27l1.36.03l-1.05.87zM19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58l2.77-1.15l-.24 3.35zm4.33-2.7l1.15-2.77l2.2 2.54zm1.15-4.96l-1.14-2.78l3.34.24zM9.63 18.93l2.77 1.15l-2.53 2.19z" />
-    </svg>
-    <!-- <button id="theme-toggle" class="theme-toggle">Toggle Dark/Light Mode</button> -->
+    <div id="theme-toggle-container">
+      <svg id="theme-toggle-light" class="theme-toggle" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 30 30">
+        <path d="M 14.984375 0.98632812 A 1.0001 1.0001 0 0 0 14 2 L 14 5 A 1.0001 1.0001 0 1 0 16 5 L 16 2 A 1.0001 1.0001 0 0 0 14.984375 0.98632812 z M 5.796875 4.7988281 A 1.0001 1.0001 0 0 0 5.1015625 6.515625 L 7.2226562 8.6367188 A 1.0001 1.0001 0 1 0 8.6367188 7.2226562 L 6.515625 5.1015625 A 1.0001 1.0001 0 0 0 5.796875 4.7988281 z M 24.171875 4.7988281 A 1.0001 1.0001 0 0 0 23.484375 5.1015625 L 21.363281 7.2226562 A 1.0001 1.0001 0 1 0 22.777344 8.6367188 L 24.898438 6.515625 A 1.0001 1.0001 0 0 0 24.171875 4.7988281 z M 15 8 A 7 7 0 0 0 8 15 A 7 7 0 0 0 15 22 A 7 7 0 0 0 22 15 A 7 7 0 0 0 15 8 z M 2 14 A 1.0001 1.0001 0 1 0 2 16 L 5 16 A 1.0001 1.0001 0 1 0 5 14 L 2 14 z M 25 14 A 1.0001 1.0001 0 1 0 25 16 L 28 16 A 1.0001 1.0001 0 1 0 28 14 L 25 14 z M 7.9101562 21.060547 A 1.0001 1.0001 0 0 0 7.2226562 21.363281 L 5.1015625 23.484375 A 1.0001 1.0001 0 1 0 6.515625 24.898438 L 8.6367188 22.777344 A 1.0001 1.0001 0 0 0 7.9101562 21.060547 z M 22.060547 21.060547 A 1.0001 1.0001 0 0 0 21.363281 22.777344 L 23.484375 24.898438 A 1.0001 1.0001 0 1 0 24.898438 23.484375 L 22.777344 21.363281 A 1.0001 1.0001 0 0 0 22.060547 21.060547 z M 14.984375 23.986328 A 1.0001 1.0001 0 0 0 14 25 L 14 28 A 1.0001 1.0001 0 1 0 16 28 L 16 25 A 1.0001 1.0001 0 0 0 14.984375 23.986328 z"></path>
+      </svg>
+      <svg id="theme-toggle-dark" class="theme-toggle" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 50 50">
+        <path d="M 25.941406 2 C 25.464844 2.027344 25.074219 2.386719 25.007813 2.859375 C 24.941406 3.332031 25.21875 3.785156 25.671875 3.945313 C 32.292969 6.261719 37 12.566406 37 20 C 37 29.402344 29.402344 37 20 37 C 12.566406 37 6.261719 32.292969 3.945313 25.671875 C 3.78125 25.203125 3.296875 24.925781 2.8125 25.015625 C 2.324219 25.109375 1.980469 25.546875 2 26.042969 C 2.515625 38.28125 12.640625 48 25 48 C 37.691406 48 48 37.691406 48 25 C 48 12.640625 38.28125 2.515625 26.042969 2 C 26.007813 2 25.972656 2 25.941406 2 Z M 31.84375 5.203125 C 40.074219 8.039063 46 15.78125 46 25 C 46 36.609375 36.609375 46 25 46 C 15.78125 46 8.039063 40.074219 5.203125 31.84375 C 8.691406 36.183594 14 39 20 39 C 30.480469 39 39 30.480469 39 20 C 39 14 36.183594 8.691406 31.84375 5.203125 Z"></path>
+      </svg>
+    </div>
   </header>
   <div id="buttons"></div>
   <div id="data"></div>
@@ -27,10 +30,30 @@
 
   <script src="index.js"></script>
   <script>
-      const themeToggleBtn = document.getElementById("theme-toggle");
-      themeToggleBtn?.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-        document.body.classList.toggle("light-mode");
+    document.addEventListener('DOMContentLoaded', () => {
+      const lightIcon = document.getElementById('theme-toggle-light');
+      const darkIcon = document.getElementById('theme-toggle-dark');
+      let currentTheme = localStorage.getItem('theme') || 'light';
+
+      const updateIcons = () => {
+        if (currentTheme === 'light') {
+          lightIcon.style.display = 'block';
+          darkIcon.style.display = 'none';
+        } else {
+          lightIcon.style.display = 'none';
+          darkIcon.style.display = 'block';
+        }
+      };
+
+      updateIcons();
+
+      document.getElementById('theme-toggle-container').addEventListener('click', () => {
+        currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+        localStorage.setItem('theme', currentTheme);
+        document.body.classList.toggle('dark-mode');
+        document.body.classList.toggle('light-mode');
+        updateIcons();
+      });
     });
   </script>
 </body>
