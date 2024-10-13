@@ -90,6 +90,7 @@ body {
 code {
   font-family: "Dank Mono", monospace;
   display: block;
+  font-weight: bold;
   font-style: italic;
   color: #f8f8f2;
   background-color: #282a36;

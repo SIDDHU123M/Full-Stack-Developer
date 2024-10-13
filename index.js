@@ -4,11 +4,34 @@ let paginationControls = document.querySelector("#pagination-controls");
 let currentPage = 1;
 const itemsPerPage = 5;
 
+const languageClassMapping = {
+  angular: "language-typescript",
+  dart: "language-dart",
+  es6: "language-javascript",
+  java: "language-java",
+  kotlin: "language-kotlin",
+  machine: "language-python",
+  php: "language-php",
+  react: "language-jsx",
+  tailwind: "language-css",
+  typescript: "language-typescript",
+  blockchain: "language-solidity",
+  django: "language-python",
+  intelligence: "language-python",
+  javascript: "language-javascript",
+  laravel: "language-php",
+  node: "language-javascript",
+  python: "language-python",
+  reactnative: "language-jsx",
+  tensorflow: "language-python",
+  vue: "language-vue",
+};
+
 async function getData(item, page = 1) {
   try {
     div.innerHTML = "<p>Loading...</p>"; // Add loading indicator
     let newObj = [];
-    let response = await fetch("ConvertedFiles/united.json");
+    let response = await fetch("united.json");
     if (!response.ok) {
       throw new Error("Network response was not ok " + response.statusText);
     }
@@ -33,11 +56,16 @@ async function getData(item, page = 1) {
     div.innerHTML = "";
     newObj.forEach((element) => {
       let contentWithCode = element.content.replace(/{{CODE_BLOCK_START}}/g, "").replace(/{{CODE_BLOCK_END}}/g, "");
+      let languageClass = languageClassMapping[item] || "language-none";
       div.innerHTML += `
               <h1>${element.title}</h1>
               <div>${contentWithCode}</div>
-              ${element.code ? `<code>${element.code}</code>` : ""}
+              ${element.code ? `<pre><code class="${languageClass}">${element.code}</code></pre>` : ""}
             `;
+    });
+
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
     });
 
     updatePaginationControls(item, page, data[item].length);
