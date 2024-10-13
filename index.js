@@ -18,24 +18,30 @@ async function getData(item, page = 1) {
     let paginatedData = data[item].slice(start, end);
 
     paginatedData.forEach((jsonData) => {
+      // Replace nested <code> tags with placeholders
+      let content = jsonData.content.replace(/<code>(.*?)<\/code>/g, (match, p1) => {
+        return `{{CODE_BLOCK_START}}${p1}{{CODE_BLOCK_END}}`;
+      });
+
       newObj.push({
         title: jsonData.title,
-        content: jsonData.content,
+        content: content,
         code: jsonData.code || "", // Assuming code is part of the JSON data
       });
     });
 
     div.innerHTML = "";
     newObj.forEach((element) => {
+      // Restore placeholders with <code> tags
+      let contentWithCode = element.content.replace(/{{CODE_BLOCK_START}}/g, "").replace(/{{CODE_BLOCK_END}}/g, "");
       div.innerHTML += `
               <h1>${element.title}</h1>
-              <div>${element.content}</div>
+              <div>${contentWithCode}</div>
               ${element.code ? `<code>${element.code}</code>` : ""}
             `;
     });
 
     updatePaginationControls(item, page, data[item].length);
-    addCopyButtons(); // Add copy buttons to new code blocks
   } catch (error) {
     console.error("There has been a problem with your fetch operation:", error);
     div.innerHTML = "<p>Failed to load data. Please try again later.</p>";
@@ -58,26 +64,6 @@ function updatePaginationControls(item, page, totalItems) {
     nextButton.onclick = () => getData(item, page + 1);
     paginationControls.appendChild(nextButton);
   }
-}
-
-function addCopyButtons() {
-  document.querySelectorAll("code").forEach((codeBlock) => {
-    if (!codeBlock.querySelector(".copy-button")) {
-      let copyButton = document.createElement("button");
-      copyButton.className = "copy-button";
-      copyButton.innerText = "Copy";
-      copyButton.onclick = () => {
-        let codeText = codeBlock.childNodes[0].nodeValue; // Get only the code text
-        navigator.clipboard.writeText(codeText).then(() => {
-          copyButton.innerText = "Copied!";
-          setTimeout(() => {
-            copyButton.innerText = "Copy";
-          }, 2000);
-        });
-      };
-      codeBlock.appendChild(copyButton);
-    }
-  });
 }
 
 let folders = [
@@ -112,7 +98,3 @@ folders.forEach((element) => {
           )}</p>
         </button>`;
 });
-
-// Add event listener to document to detect changes and add copy buttons
-const observer = new MutationObserver(addCopyButtons);
-observer.observe(document.body, { childList: true, subtree: true });
