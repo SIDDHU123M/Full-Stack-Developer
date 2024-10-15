@@ -54,7 +54,6 @@ const folders = [
 
 function createButtons(path, dis) {
   buttons.innerHTML = "";
-  div.innerHTML = ""; // Clear content area when navigating
   if (path === posts) {
     const dropdown = document.createElement("select");
     dropdown.classList.add("dropdown");
@@ -68,12 +67,6 @@ function createButtons(path, dis) {
       getData(event.target.value, 'posts.json');
     });
     buttons.appendChild(dropdown);
-    
-    const backButton = document.createElement("button");
-    backButton.classList.add("button");
-    backButton.innerHTML = `<img src="images/back.svg" alt="Back" class="icon"> <p class="text">Back</p>`;
-    backButton.onclick = backFunction;
-    buttons.appendChild(backButton);
   } else {
     path.forEach((element) => {
       buttons.innerHTML += `<button class="button" onclick="getData('${element}', '${dis[4]}')">
@@ -87,16 +80,22 @@ function createButtons(path, dis) {
     buttons.innerHTML += `<button class="button" onclick="${dis[2]}()"> <img src="images/${dis[1]}" alt="${dis[0]}" class="icon"> <p class="text">${dis[0]}</p></button>`
   }
 }
-
+ 
 async function getData(item, file, page = 1) {
-  div.innerHTML = "<p class='loading'>Loading...</p>"; 
+  div.innerHTML = "";
   try {
+    div.innerHTML = "<p>Loading...</p>"; // Add loading indicator
     console.log(`Fetching data for item: ${item} from file: ${file}`);
     const response = await fetch(file);
     if (!response.ok) {
       throw new Error("Network response was not ok " + response.statusText);
     }
     const data = await response.json();
+
+    // Log the data to verify its structure
+    console.log('Fetched data:', data);
+
+    // Extract the item name without the .json extension
     const itemName = item;
 
     if (!data[itemName]) {
@@ -157,6 +156,7 @@ function updatePaginationControls(item, page, totalItems, file) {
   }
 }
 
+// Initialize buttons on page load
 createButtons(folders, ['Other', 'other.svg', 'nextPosts', "getData", 'united.json']);
 
 function nextPosts() {

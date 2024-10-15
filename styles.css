@@ -49,10 +49,6 @@ body {
   transition: color 0.4s;
 }
 
-#data p {
-  font-family: 'Inter', Arial, sans-serif;
-  font-size: 1.0em;
-}
 .button .icon {
   width: 24px;
   height: 24px;
@@ -172,6 +168,40 @@ header svg {
 #pagination-controls button:hover {
   background-color: #0056b3;
   transform: scale(1.05);
+}
+
+/* Dropdown Styles */
+.dropdown {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  font-size: 1em;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.dropdown:hover {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.dropdown option {
+  padding: 10px;
+  background-color: #fff;
+  color: #000;
+}
+
+/* Loading Animation */
+@keyframes loading {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+.loading {
+  font-size: 1.2em;
+  color: #007bff;
+  animation: loading 1s infinite;
 }
 
 /* Media Queries */
