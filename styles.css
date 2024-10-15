@@ -185,6 +185,10 @@ header svg {
     gap: 0.8em;
   }
 
+  .dark-mode .button .icon {
+    filter: invert(1);
+  }
+
   #data img, figure {
     width: 100%;
     margin: 10px !important;
