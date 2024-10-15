@@ -1,0 +1,1455 @@
+[
+    {
+        "id": 2699,
+        "date": "2020-09-07T10:16:51",
+        "date_gmt": "2020-09-07T10:16:51",
+        "guid": {
+            "rendered": "http:\/\/react.foobrdigital.com\/?p=2699"
+        },
+        "modified": "2020-09-07T10:16:51",
+        "modified_gmt": "2020-09-07T10:16:51",
+        "slug": "introduction-8",
+        "status": "publish",
+        "type": "post",
+        "link": "https:\/\/fullstack.smartstart.institute\/introduction-8\/",
+        "title": {
+            "rendered": "Introduction"
+        },
+        "content": {
+            "rendered": "\n<figure class=\"wp-block-image size-large\"><img src=\"https:\/\/react.foobrdigital.com\/wp-content\/uploads\/2020\/09\/1htbUdWgFQ3a94PMEvBr_hQ.png\" alt=\"\" class=\"wp-image-2700\"\/><\/figure>\n\n\n\n<p>For quite some time, client-server architecture was one of the most widespread patterns in large-scale software development. Even systems that run purely on one computer are\u00a0often\u00a0designed this way. This allows us to clearly separate concerns: the server takes care of heavy business logic, persistent storage, accessing data from third-party services, and\u00a0so on, and the client is responsible solely for presentation to end users.<\/p>\n\n\n\n<p>This architecture also allows us to have multiple clients connected to one backend: mobile apps, IoT devices, third-party REST API consumers (for example, external developers), and the web, for example.<\/p>\n\n\n\n<p>In the early days of web development, it was not that way though. Servers were responsible for everything. Usually, it was a combination of DB, app itself, template engine, a bunch of static assets (images, CSS, and so on) all baked together into a monolithic app. Later on, it became obvious that this kind of architecture does not scale well.<\/p>\n\n\n\n<p>Nowadays, the modern web is moving back to client-server architecture with a clean separation of concerns and concrete responsibilities for each component. Server-side apps deal with data and client-side apps deal with presentation of that data.<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>For quite some time, client-server architecture was one of the most widespread patterns in large-scale software development. Even systems that run purely on one computer are\u00a0often\u00a0designed this way. This allows us to clearly separate concerns: the server takes care of heavy business logic, persistent storage, accessing data from third-party services, and\u00a0so on, and the client&hellip; <a class=\"more-link\" href=\"https:\/\/fullstack.smartstart.institute\/introduction-8\/\">Continue reading <span class=\"screen-reader-text\">Introduction<\/span><\/a><\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            30
+        ],
+        "tags": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/2699"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/comments?post=2699"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 0,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/2699\/revisions"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/media?parent=2699"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/categories?post=2699"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/tags?post=2699"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 4783,
+        "date": "2020-09-07T11:08:45",
+        "date_gmt": "2020-09-07T11:08:45",
+        "guid": {
+            "rendered": "http:\/\/react.foobrdigital.com\/?p=2719"
+        },
+        "modified": "2020-09-07T11:08:45",
+        "modified_gmt": "2020-09-07T11:08:45",
+        "slug": "dynamic-routing",
+        "status": "publish",
+        "type": "post",
+        "link": "https:\/\/fullstack.smartstart.institute\/dynamic-routing\/",
+        "title": {
+            "rendered": "Dynamic Routing"
+        },
+        "content": {
+            "rendered": "\n<p>Of course, no real app can live with only static URLs based on just pages, so let&#8217;s add a bit of dynamic routing to our app:<\/p>\n\n\n\n<ol><li>Let&#8217;s start with a small data source stub:<\/li><\/ol>\n\n\n\n<pre class=\"wp-block-code\"><code>      \/\/ data\/posts.js\n      export default &#91;\n          {title: 'Foo'},\n          {title: 'Bar'},\n          {title: 'Baz'},\n          {title: 'Qux'}\n      ];<\/code><\/pre>\n\n\n\n<ol start=\"2\"><li>Now, let&#8217;s connect it to our index page:<\/li><\/ol>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ pages\/index.js\n      import React from 'react';\n      import Link from \"next\/link\";\n      import Nav from \"..\/components\/Nav\";\n      import posts from \"..\/data\/posts\";\n\n      export default () => (\n          &lt;div>\n\n              &lt;Nav\/>\n\n              &lt;hr\/>\n\n              &lt;ul>\n            {posts.map((post, index) => (\n                &lt;li key={index}>\n                    &lt;Link href={{pathname: '\/second', query: {id: index}}}>\n                        &lt;a>{post.title}&lt;\/a>\n                    &lt;\/Link>\n                &lt;\/li>\n            ))}\n        &lt;\/ul>\n\n    &lt;\/div>\n);      <\/code><\/pre>\n\n\n\n<p>Here, we imported the data source and iterated over it to produce some simple <kbd>nav<\/kbd> links, as you can see; for convenience, we may also use <kbd>href<\/kbd> as a URL object. Next.js will serialize it into a standard string.<\/p>\n\n\n\n<ol start=\"3\"><li>Now, let&#8217;s update the second page:<\/li><\/ol>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ pages\/second.js\nimport React from 'react';\nimport Nav from \"..\/components\/Nav\";\nimport posts from \"..\/data\/posts\";\n\nexport default ({url: {query: {id}}}) => (\n    &lt;div>\n        &lt;Nav\/>\n        &lt;hr\/>\n        &lt;h1>{posts&#91;id].title}&lt;\/h1>\n    &lt;\/div>\n);<\/code><\/pre>\n\n\n\n<p>Now, if we visit <kbd>http:\/\/localhost:3000<\/kbd>, we will see a clickable list of posts, each of them leading to a dedicated dynamic page.<\/p>\n\n\n\n<p>Unfortunately, if we now visit the second page directly from our <kbd>Nav<\/kbd> component (by clicking the top menu button) we will get a nasty error. We purposely put in a link to a nonexistent page for simplicity, but let&#8217;s assume somebody did that by mistake. Let&#8217;s make the error look prettier at least. We should import a special Next.js Error component and return it in case of any errors:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ pages\/second.js\nimport React from 'react';\nimport Error from 'next\/error';\nimport Nav from \"..\/components\/Nav\";\nimport posts from \"..\/data\/posts\";\n\nexport default ({url: {query: {id}}}) => (\n    (posts&#91;id]) ? (\n        &lt;div>\n            &lt;Nav\/>\n            &lt;hr\/>\n            &lt;h1>{posts&#91;id].title}&lt;\/h1>\n        &lt;\/div>\n    ) : (\n        &lt;Error statusCode={404}\/>\n    )\n);<\/code><\/pre>\n\n\n\n<ol start=\"4\"><li><\/li><\/ol>\n\n\n\n<pre class=\"wp-block-code\"><code>import Error from 'next\/error';     <\/code><\/pre>\n\n\n\n<ol start=\"5\"><li>And, we wrapped the component in a ternary operator:<\/li><\/ol>\n\n\n\n<pre class=\"wp-block-code\"><code>     export default ({url: {query: {id}}}) => (\n         (posts&#91;id]) ? (...) : (&lt;Error statusCode={404}\/>)\n     );<\/code><\/pre>\n\n\n\n<ol start=\"6\"><li>This will return a nice&nbsp;Next.js 404 Page&nbsp;Not Found error page.&nbsp;<\/li><\/ol>\n\n\n\n<p>If we now visit the &#8220;Second&#8221; link from the top menu we will hit 404. That&#8217;s by design to show how 404 works. There will be no ID and hence no post loaded, so ternary condition will produce <kbd>Error<\/kbd> component.<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Of course, no real app can live with only static URLs based on just pages, so let&#8217;s add a bit of dynamic routing to our app: Let&#8217;s start with a small data source stub: Now, let&#8217;s connect it to our index page: Here, we imported the data source and iterated over it to produce some&hellip; <a class=\"more-link\" href=\"https:\/\/fullstack.smartstart.institute\/dynamic-routing\/\">Continue reading <span class=\"screen-reader-text\">Dynamic Routing<\/span><\/a><\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            30,
+            1
+        ],
+        "tags": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/4783"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/comments?post=4783"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 0,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/4783\/revisions"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/media?parent=4783"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/categories?post=4783"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/tags?post=4783"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 2702,
+        "date": "2020-09-07T11:27:09",
+        "date_gmt": "2020-09-07T11:27:09",
+        "guid": {
+            "rendered": "http:\/\/react.foobrdigital.com\/?p=2702"
+        },
+        "modified": "2020-09-07T11:27:09",
+        "modified_gmt": "2020-09-07T11:27:09",
+        "slug": "what-is-a-single-page-app",
+        "status": "publish",
+        "type": "post",
+        "link": "https:\/\/fullstack.smartstart.institute\/what-is-a-single-page-app\/",
+        "title": {
+            "rendered": "What is a single-page app?"
+        },
+        "content": {
+            "rendered": "\n<p>A single-page app implements this architecture for web clients: the JavaScript app&nbsp;launches from a web page and then runs entirely in the browser. All visual changes on the website happen as a reaction to user actions and the data received from the remote APIs.<\/p>\n\n\n\n<p>It is called single-page because the server does not render pages for the client; it always delivers the same minimalistic markup required to bootstrap the JS app. All page rendering and navigation happens purely on the client, using JavaScript, which utilizes History APIs to dynamically swap page contents and URLs in the location bar.<\/p>\n\n\n\n<p>The advantages that this approach gives are that the client can run something in the background between page transitions, and the client does not have to re-download and re-render the entire page in order to swap only the main content. Unfortunately, it also brings drawbacks, because now the client is responsible for all state changes. For the synchronization of such changes across the entire interface, it must know&nbsp;when to load the data and&nbsp;what particular data. In other words, a server-generated app is&nbsp;conceptually&nbsp;a way simpler thing, thanks to the REST service + JS client.<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>A single-page app implements this architecture for web clients: the JavaScript app&nbsp;launches from a web page and then runs entirely in the browser. All visual changes on the website happen as a reaction to user actions and the data received from the remote APIs. It is called single-page because the server does not render pages&hellip; <a class=\"more-link\" href=\"https:\/\/fullstack.smartstart.institute\/what-is-a-single-page-app\/\">Continue reading <span class=\"screen-reader-text\">What is a single-page app?<\/span><\/a><\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            30,
+            1
+        ],
+        "tags": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/2702"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/comments?post=2702"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 0,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/2702\/revisions"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/media?parent=2702"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/categories?post=2702"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/tags?post=2702"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 2704,
+        "date": "2020-09-07T11:27:09",
+        "date_gmt": "2020-09-07T11:27:09",
+        "guid": {
+            "rendered": "http:\/\/react.foobrdigital.com\/?p=2704"
+        },
+        "modified": "2020-09-07T11:27:09",
+        "modified_gmt": "2020-09-07T11:27:09",
+        "slug": "what-is-server-side-rendering",
+        "status": "publish",
+        "type": "post",
+        "link": "https:\/\/fullstack.smartstart.institute\/what-is-server-side-rendering\/",
+        "title": {
+            "rendered": "What is Server side rendering?"
+        },
+        "content": {
+            "rendered": "\n<p>Back in the old days, web pages were served as is by static servers.&nbsp;All navigation and interaction were based on those pages; you had to transition from one page to another, nothing was dynamic, and you could not show or hide a block of text, or do something similar.<\/p>\n\n\n\n<p>Later, servers started to use templates to deliver HTML to the client. Languages such as Java, PHP, Python, ASP, VBScript, Perl, and Ruby&nbsp;were suitable for such tasks. Those pages were called server-generated. The interaction though was still the same: page transitions.<\/p>\n\n\n\n<p>Then JavaScript and VBScript came into play for&nbsp;very simple&nbsp;client-side user interaction, just some hover effects and simple scripts here and there to show or hide server-generated content. Some time later, more complicated scenarios were introduced and the bias shifted towards the client side. Servers started to generate not only full templates, but also replaceable fragments to reflect more in-place changes, such as when the client sends a form via AJAX and receives from the server the HTML of this form with validation errors, client only swapped HTML pieces, it was not responsible for templating.<\/p>\n\n\n\n<p>Later on, due to the shift towards REST APIs, a cleaner separation of concerns brought the industry away from server-generated approaches to fully JS-driven apps, which were capable of rendering the pure data into HTML by using client-side templates.<\/p>\n\n\n\n<p>But in order to more efficiently load the initial data for a JS app, we can utilize the server-generated approach a little bit. We can render the initial markup on the server and then let the JS app take&nbsp;it&nbsp;over later. The main assumption here is the fact that the server-side renderer is usually much closer to the API server, ideally in the same data center, and thus it has much better connection and way more bandwidth than remote clients (browsers in our case). It also can utilize all benefits of HTTP2 or any other protocol to maintain fast data exchange.<\/p>\n\n\n\n<p>The server can optimize rendering time by caching the results from rendering individual components or entire pages, indexed on a serialization of the parameters that affect the output &#8211; that are used by the component. This is particularly true of components or entire pages that will be viewed repeatedly in the same state, either just by one user or potentially by many different users. Where appropriate, this strategy may even allow the server-side renderer to reduce load on the API server, if cached component renders are given a TTL.<\/p>\n\n\n\n<p>The server-side renderer is capable of doing all those chained requests much faster than clients, and all the codebase can be pre-loaded and pre-parsed. It can also use more aggressive data caching strategies, since invalidation can also be centrally maintained.<\/p>\n\n\n\n<p>To decrease code duplication, we would like to use the same technology and the same templates both on the client and on the server.&nbsp;Such an app is called universal or isomorphic.<\/p>\n\n\n\n<p>The general approach is as follows: we take the Node.js server, install a web framework, and start listening to incoming requests. On every request that matches a certain URL, we take the client scripts and use them to bootstrap the initial state of the app for the given page. Then, we serialize the resulting HTML and data, bake it together, and send it to the client.<\/p>\n\n\n\n<p>The client immediately shows the markup and then bootstraps the app on the client, applying initial data and state, and hence taking control.<\/p>\n\n\n\n<p>The next page transition will happen completely on the client; it will load data from regular API endpoints just like before. One of the trickiest parts of this approach is to make sure that the same page with the same HTML will be rendered both on the client and on the server, which means we need to make sure the client app will be bootstrapped in a certain state that will result in the same HTML.<\/p>\n\n\n\n<p>This brings us to the choice of framework. Not all client-side frameworks are capable of server-side rendering; for instance, it would be quite challenging to write a jQuery app that will pick up state and render itself correctly on top of existing HTML.<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Back in the old days, web pages were served as is by static servers.&nbsp;All navigation and interaction were based on those pages; you had to transition from one page to another, nothing was dynamic, and you could not show or hide a block of text, or do something similar. Later, servers started to use templates&hellip; <a class=\"more-link\" href=\"https:\/\/fullstack.smartstart.institute\/what-is-server-side-rendering\/\">Continue reading <span class=\"screen-reader-text\">What is Server side rendering?<\/span><\/a><\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            30,
+            1
+        ],
+        "tags": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/2704"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/comments?post=2704"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 0,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/2704\/revisions"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/media?parent=2704"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/categories?post=2704"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/tags?post=2704"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 4779,
+        "date": "2020-09-07T11:27:09",
+        "date_gmt": "2020-09-07T11:27:09",
+        "guid": {
+            "rendered": "http:\/\/react.foobrdigital.com\/?p=2707"
+        },
+        "modified": "2020-09-07T11:27:09",
+        "modified_gmt": "2020-09-07T11:27:09",
+        "slug": "why-choose-next-js",
+        "status": "publish",
+        "type": "post",
+        "link": "https:\/\/fullstack.smartstart.institute\/why-choose-next-js\/",
+        "title": {
+            "rendered": "Why Choose Next.js"
+        },
+        "content": {
+            "rendered": "\n<p>Nowadays, there are few competitors in the React-based server-side rendering market. We can divide them into the following categories:<\/p>\n\n\n\n<ul><li>Drop-in dynamic solutions (Next.js, Electrode, After)<\/li><li>Drop-in static solutions (Gatsby, React Static)<\/li><li>Custom solutions<\/li><\/ul>\n\n\n\n<p>The main difference between first two approaches is the way the app is built and served.<\/p>\n\n\n\n<p>A static solution makes a static HTML build (with all possible router pages), and then this build can be served by a static server such as Nginx, Apache, or any other. All HTML is pre-baked, as well as the initial state. This is very suitable for websites with incremental content updates that happen infrequently, for example, for a blog.<\/p>\n\n\n\n<p>The dynamic solution generates HTML on the fly every time the client requests it. This means we can put in any dynamic logic, or any dynamic HTML blocks such as per-request ads and so on. But the drawback is that it requires a long-running server.<br>This server has to be monitored and ideally should become a cluster of servers for redundancy to make sure it&#8217;s highly available.<\/p>\n\n\n\n<p>We will make the main focus of this book dynamic solutions, as they are more flexible and more complex but also require deeper understanding.<\/p>\n\n\n\n<p>Lets dive deeper into a custom solution using only React and React Router.<\/p>\n\n\n\n<p>Let&#8217;s install the router and special package to configure routes statically (it&#8217;s impossible to generate purely dynamic routes on a server):<\/p>\n\n\n\n<pre class=\"wp-block-preformatted\"><strong>npm i --save react-router-dom react-router-config<\/strong><\/pre>\n\n\n\n<p>Now, let&#8217;s configure the routes:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ routes.js\nconst routes = &#91;\n  {\n    path: '\/',\n    exact: true,\n    component: Index\n  },\n  {\n    path: '\/list',\n    component: List\n  }\n];\nexport default routes;<\/code><\/pre>\n\n\n\n<p>The main app entry point should look like this:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ index.js\nimport React from 'react';\nimport {render} from 'react-dom';\nimport BrowserRouter from 'react-router-dom\/BrowserRouter';\nimport {renderRoutes} from 'react-router-config';\nimport routes from '.\/routes';\n\nconst Router = () => {\n  return (\n    &lt;BrowserRouter>\n      {renderRoutes(routes)}\n    &lt;\/BrowserRouter>\n  )\n};\n\nrender(&amp;lt;Router \/>, document.getElementById('app'));<\/code><\/pre>\n\n\n\n<p>On the server, we will have the following:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>import express from 'express';\nimport React from 'react';\nimport { renderToString } from 'react-dom\/server';\nimport StaticRouter from 'react-router-dom\/StaticRouter';\nimport { renderRoutes } from 'react-router-config';\nimport routes from '.\/src\/routes';\n\nconst app = express();\n\napp.get('*', (req, res) => {\n  let context = {}; \/\/ pre-fill somehow\n  const content = renderToString(\n    &lt;StaticRouter location={req.url} context={context}>\n      {renderRoutes(routes)}\n    &lt;\/StaticRouter>\n  );\n  res.render('index', {title: 'SSR', content });\n}); <\/code><\/pre>\n\n\n\n<p>But, this will simply render the page with no data. In order to prepopulate data into the page, we need to do the following, both in the component and in the server:<\/p>\n\n\n\n<ol><li>Each data-enabled component must expose a method that the server should call during route resolution<\/li><li>The server iterates over all matched components and utilizes exposed methods<\/li><li>The server collects the data and puts it into storage<\/li><li>The server renders the HTML using routes and data from storage<\/li><li>The server sends to the client the resulting HTML, along with data<\/li><li>The client initializes using the HTML and prepopulates the state using data<\/li><\/ol>\n\n\n\n<p>We intentionally won&#8217;t show steps 3 and onward, because there is no generic way for pure React and React Router. For storage, most solutions will use Redux and this is a whole another topic. So, here we just show the basic principle:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ list.js\nimport React from \"react\";\n\nconst getText = async () => (await (await fetch('https:\/\/api.github.com\/users\/octocat')).text());\n\nexport default class List extends React.Component {\n\n  state = {text: ''};\n\n  static async getInitialProps(context) {\n    context.text = await getText();\n  }\n\n  async componentWillMount() {\n    const text = await getText();\n    this.setState({text})\n  }\n  \n  render() {\n    const {staticContext} = this.props;\n    let {text} = this.state;\n    if (staticContext &amp;&amp; !text) text = staticContext.text;\n    return (\n      &lt;pre>Text: {text}&lt;\/pre>\n    );\n  }\n\n}<\/code><\/pre>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ server.js\n\/\/ all from above\napp.get('*', (req, res) => {\n  const {url} = req;\n  const matches = matchRoutes(routes, url);\n  const context = {};\n  const promises = matches.map(({route}) => {\n    const getInitialProps = route.component.getInitialProps;\n    return getInitialProps ? getInitialProps(context) : Promise.resolve(null)\n  });\n  return Promise.all(promises).then(() => {\n    console.log('Context', context);\n    const content = renderToString(\n      &lt;StaticRouter location={url} context={context}>\n        {renderRoutes(routes)}\n      &lt;\/StaticRouter>\n    );\n    res.render('index', {title: 'SSR', content});\n  });\n});<\/code><\/pre>\n\n\n\n<p>The reason why we are not covering those aspects is because even after heavy development, it becomes obvious that the custom solution still has quirks and glitches, primarily because React Router was not meant to be used on a server, so every custom solution always has some hacks. Even the authors of React Router say that they decided not to use server-side rendering in their projects. So, it would be much better to take a stable\/standard solution that was built with server-side rendering in mind from day one.<\/p>\n\n\n\n<p>Among other competitors, Next.js stands out as one of the pioneers of this approach; this framework is currently the most popular. It offers a very convenient API, easy installation, zero configuration, and a huge community. Electrode may be more flexible and powerful than Next.js, but it has extremely complicated configuration. After this is a Next.js-alike framework, which is built on top of React Router, Helmet and other familiar libraries, but the community is still relatively small so far, although it definitely worth to mention.<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Nowadays, there are few competitors in the React-based server-side rendering market. We can divide them into the following categories: Drop-in dynamic solutions (Next.js, Electrode, After) Drop-in static solutions (Gatsby, React Static) Custom solutions The main difference between first two approaches is the way the app is built and served. A static solution makes a static&hellip; <a class=\"more-link\" href=\"https:\/\/fullstack.smartstart.institute\/why-choose-next-js\/\">Continue reading <span class=\"screen-reader-text\">Why Choose Next.js<\/span><\/a><\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            30,
+            1
+        ],
+        "tags": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/4779"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/comments?post=4779"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 0,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/4779\/revisions"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/media?parent=4779"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/categories?post=4779"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/tags?post=4779"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 4780,
+        "date": "2020-09-07T11:27:09",
+        "date_gmt": "2020-09-07T11:27:09",
+        "guid": {
+            "rendered": "http:\/\/react.foobrdigital.com\/?p=2709"
+        },
+        "modified": "2020-09-07T11:27:09",
+        "modified_gmt": "2020-09-07T11:27:09",
+        "slug": "installing-next-js",
+        "status": "publish",
+        "type": "post",
+        "link": "https:\/\/fullstack.smartstart.institute\/installing-next-js\/",
+        "title": {
+            "rendered": "Installing Next.js"
+        },
+        "content": {
+            "rendered": "\n<p>First, create an empty project folder and initialize npm&nbsp;in it:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>$ mkdir next-js-condensed\n$ cd next-js-condensed\n$ npm init<\/code><\/pre>\n\n\n\n<p>After that, let&#8217;s install the Next.js package:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>$ npm install nextjs@latest --save-dev\n$ npm install react@latest react-dom@latest --save<\/code><\/pre>\n\n\n\n<p>We save Next.js to <kbd>devDependencies<\/kbd> to clearly separate dependencies for the client and for the server. Server-side&nbsp;dependencies will be in the&nbsp;<kbd>devDependencies<\/kbd> section; the client&#8217;s will be in the regular section.<\/p>\n\n\n\n<p>If you&#8217;re using Git or any similar source control tool, it makes sense to add an ignore file that will remove the build artifacts folder from source control. We show an example <kbd>.gitignore<\/kbd> file here:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>DS_Store\n.idea\n.next\n.vscode\nbuild\ncoverage\nnode_modules\nnpm-debug*\nout\nyarn-debug*\nyarn-error*.<\/code><\/pre>\n\n\n\n<h1>Running Next.js&nbsp;in developer mode<\/h1>\n\n\n\n<p>In order to start the server, by convention we need to define a start script in <kbd>package.json<\/kbd>, so we will add the following there:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>{\n  \"scripts\": {\n    \"start\": \"next\"\n  }\n}<\/code><\/pre>\n\n\n\n<p>Now, you can start the server by typing this in the console:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>$ npm start<\/code><\/pre>\n\n\n\n<p>Now, if you visit <kbd>http:\/\/localhost:3000<\/kbd> in your browser, you will see the running server.<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>First, create an empty project folder and initialize npm&nbsp;in it: After that, let&#8217;s install the Next.js package: We save Next.js to devDependencies to clearly separate dependencies for the client and for the server. Server-side&nbsp;dependencies will be in the&nbsp;devDependencies section; the client&#8217;s will be in the regular section. If you&#8217;re using Git or any similar source&hellip; <a class=\"more-link\" href=\"https:\/\/fullstack.smartstart.institute\/installing-next-js\/\">Continue reading <span class=\"screen-reader-text\">Installing Next.js<\/span><\/a><\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            30,
+            1
+        ],
+        "tags": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/4780"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/comments?post=4780"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 0,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/4780\/revisions"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/media?parent=4780"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/categories?post=4780"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/tags?post=4780"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 4781,
+        "date": "2020-09-07T11:27:09",
+        "date_gmt": "2020-09-07T11:27:09",
+        "guid": {
+            "rendered": "http:\/\/react.foobrdigital.com\/?p=2712"
+        },
+        "modified": "2020-09-07T11:27:09",
+        "modified_gmt": "2020-09-07T11:27:09",
+        "slug": "creating-your-first-next-js-page",
+        "status": "publish",
+        "type": "post",
+        "link": "https:\/\/fullstack.smartstart.institute\/creating-your-first-next-js-page\/",
+        "title": {
+            "rendered": "Creating Your First Next.js Page"
+        },
+        "content": {
+            "rendered": "\n<p>Now, let&#8217;s create the first page and place it in the&nbsp;<kbd>pages<\/kbd> folder:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ pages\/index.js\nimport React from \"react\";\nexport default () => (&lt;div>Hello, World!&lt;\/div>);<\/code><\/pre>\n\n\n\n<p>Now, if you run the dev server (<kbd>npm start<\/kbd>) and visit <kbd>http:\/\/localhost:3000<\/kbd>, you will see this page:<\/p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img src=\"https:\/\/react.foobrdigital.com\/wp-content\/uploads\/2020\/09\/4832c32e-6c16-4de6-a1a5-95760775af96-1024x360.png\" alt=\"\" class=\"wp-image-2713\"\/><\/figure>\n\n\n\n<p>Now, let&#8217;s see how Next.js handles errors in your files:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ pages\/index.js\nimport React from \"react\";\nexport default () => (&lt;div>&lt;p>Hello, World!&lt;\/div>);\n\/\/                          ^ here we purposely not closing this tag<\/code><\/pre>\n\n\n\n<p>Then, reload the page&nbsp;to see this:<\/p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img src=\"https:\/\/react.foobrdigital.com\/wp-content\/uploads\/2020\/09\/0ee0bb3b-335d-48d5-b107-bb75f4fbc1c8-1024x558.png\" alt=\"\" class=\"wp-image-2714\"\/><\/figure>\n\n\n\n<h3>Running a Next.js Production Build<\/h3>\n\n\n\n<p>Next.js supports two kinds of production usage, static and dynamic, the main difference being that a static build can be served by any static HTTP server as a static website, whereas dynamic usage means that there will be a Next.js server that executes the production build:<\/p>\n\n\n\n<ol><li>Static mode is best suited for simple websites with no dynamic content. We need to add a script to <kbd>package.json<\/kbd>:<\/li><\/ol>\n\n\n\n<pre class=\"wp-block-code\"><code>      {\n        \"scripts\": {\n         \"build\": \"next build\",\n         \"static\": \"next export\"\n       }\n     }<\/code><\/pre>\n\n\n\n<ol start=\"2\"><li>Then, we have to add a <kbd>next.config.js<\/kbd> with a path map (this was fixed in <kbd>6.0.0<\/kbd>; you no longer have to do it for 1-1 matches of filesystems and URLs):<\/li><\/ol>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ next.config.js\n      module.exports = {\n          exportPathMap: () => ({\n              '\/': {page: '\/'}\n          })\n      };      <\/code><\/pre>\n\n\n\n<ol start=\"3\"><li>Now, we run this:<\/li><\/ol>\n\n\n\n<pre class=\"wp-block-code\"><code>$ npm run build\n     $ npm run static&lt;strong>     &lt;\/strong><\/code><\/pre>\n\n\n\n<p>This will create a static build that we can deploy somewhere.<\/p>\n\n\n\n<ol start=\"4\"><li>In order to build and run the site for dynamic production mode, we will add more scripts to <kbd>package.json<\/kbd>:<\/li><\/ol>\n\n\n\n<pre class=\"wp-block-code\"><code>      {\n        \"scripts\": {\n          \"build\": \"next build\",\n          \"server\": \"next start\"\n        }\n      }<\/code><\/pre>\n\n\n\n<ol start=\"5\"><li>Then, in the console, run this:<\/li><\/ol>\n\n\n\n<pre class=\"wp-block-code\"><code>      $ npm run build\n      $ npm run server<\/code><\/pre>\n\n\n\n<p>This will make the build and run the production server using that <kbd>build<\/kbd>.<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Now, let&#8217;s create the first page and place it in the&nbsp;pages folder: Now, if you run the dev server (npm start) and visit http:\/\/localhost:3000, you will see this page: Now, let&#8217;s see how Next.js handles errors in your files: Then, reload the page&nbsp;to see this: Running a Next.js Production Build Next.js supports two kinds of&hellip; <a class=\"more-link\" href=\"https:\/\/fullstack.smartstart.institute\/creating-your-first-next-js-page\/\">Continue reading <span class=\"screen-reader-text\">Creating Your First Next.js Page<\/span><\/a><\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            30,
+            1
+        ],
+        "tags": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/4781"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/comments?post=4781"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 0,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/4781\/revisions"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/media?parent=4781"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/categories?post=4781"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/tags?post=4781"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 4782,
+        "date": "2020-09-07T11:27:09",
+        "date_gmt": "2020-09-07T11:27:09",
+        "guid": {
+            "rendered": "http:\/\/react.foobrdigital.com\/?p=2717"
+        },
+        "modified": "2020-09-07T11:27:09",
+        "modified_gmt": "2020-09-07T11:27:09",
+        "slug": "routing-2",
+        "status": "publish",
+        "type": "post",
+        "link": "https:\/\/fullstack.smartstart.institute\/routing-2\/",
+        "title": {
+            "rendered": "Routing"
+        },
+        "content": {
+            "rendered": "\n<p>Now that we know how to make Next.js routing, let&#8217;s make another page:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ pages\/second.js\nimport React from \"react\";\nexport default () => (&lt;div>Second&lt;\/div>);<\/code><\/pre>\n\n\n\n<p>This new page is accessible via <kbd>http:\/\/localhost:3000\/second<\/kbd>.<\/p>\n\n\n\n<p>Now, let&#8217;s add a link to that second page to the index page. If we use a simple <kbd>&lt;a&gt;<\/kbd> tag for this, it will work, of course, but it will perform a regular server request instead of client-side navigation, so performance will be much worse: the client will reload all the initialization payloads, and will be forced to re-initialize the entire app.<\/p>\n\n\n\n<ol><li>In order to do proper client-side navigation, we need to import a link component from Next.js:<\/li><\/ol>\n\n\n\n<pre class=\"wp-block-code\"><code>      \/\/ pages\/index.js\n      import React from \"react\";\n      import Link from \"next\/link\";\n      export default () => (&lt;div>&lt;Link href=\"\/second\">&lt;a>Second&lt;\/a>\n      &lt;\/Link>&lt;\/div>);<\/code><\/pre>\n\n\n\n<ol start=\"2\"><li>Here, we added a new link to the page content; notice that we have added an empty <kbd>&lt;a&gt;<\/kbd> tag:&nbsp;<\/li><\/ol>\n\n\n\n<pre class=\"wp-block-code\"><code>&lt;Link href=\"\/second\">&lt;a>Second&lt;\/a>&lt;\/Link>      <\/code><\/pre>\n\n\n\n<p><kbd>&lt;Link&gt;<\/kbd> is a wrapper on top of any component that can accept the&nbsp;<kbd>onClick<\/kbd> prop; we will talk about that a bit later.<\/p>\n\n\n\n<ol start=\"3\"><li>Now, open <kbd>http:\/\/localhost:3000<\/kbd>, click the link, and verify that page is not reloading by looking in the network tab of the developer tools.<\/li><li>So, what if we&#8217;d like to apply styles to the link? We should apply them not on <kbd>&lt;Link&gt;<\/kbd> but on the&nbsp;<kbd>&lt;a&gt;<\/kbd> component \u2013 separation of concerns at its finest.<\/li><\/ol>\n\n\n\n<p><kbd>&lt;Link&gt;<\/kbd> accepts all nav-related props, whereas <kbd>&lt;a&gt;<\/kbd> (or any other component) is used for presentation (styles, look, and feel).<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>&lt;Link href=\"\/second\">&lt;button style={{fontWeight: 'bold'}}>Second&lt;\/button>&lt;\/Link><\/code><\/pre>\n\n\n\n<p>This code still works as expected. Please keep in mind that this is not an SEO-friendly way to create a link; we use <kbd>&lt;button&gt;<\/kbd> to illustrate that any clickable component can be used. You should use <kbd>&lt;a&gt;<\/kbd> instead of <kbd>&lt;button&gt;<\/kbd> for SEO. Link is also capable of one interesting thing: by default it uses lazy loading of the underlying nav page, but for maximum performance you may use <kbd>&lt;Link prefetch&gt;<\/kbd>, which will allow instant transition.<\/p>\n\n\n\n<p>Now, let&#8217;s code a more complicated case for a custom button-like component:<\/p>\n\n\n\n<ol><li>In order to pass a <kbd>href<\/kbd> prop to the underlying component (in case the top-level component will not be recognized as a link\/button), we need to add a <kbd>passHref<\/kbd> prop.<\/li><li>We also can import with Router <strong>HOC<\/strong> (<strong>Higher Order Component<\/strong>) from next\/router to allow resolution of URLs in order to highlight if the desired route is already selected:<\/li><\/ol>\n\n\n\n<pre class=\"wp-block-code\"><code>      \/\/ components\/Btn.js\n      import React from 'react';\n      import {withRouter} from 'next\/router';\n\n      const Btn = ({href, onClick, children, router}) => ( \/\/ router \n      prop is injected by withRouter HOC\n          &lt;span>\n              &lt;button onClick={onClick} style={{fontWeight : \n              router.pathname === href ? 'bold' : ''}}>\n                  {children}\n              &lt;\/button>\n          &lt;\/span>\n      );\n\n      export default withRouter(Btn);<\/code><\/pre>\n\n\n\n<p>HOC&nbsp;is a function that takes a component and wraps it with some extra functionality. Usually, HOCs provide extra props to children components; in the case of Router, a wrapped component will receive <kbd>router<\/kbd>&nbsp;and other props.<\/p>\n\n\n\n<ol start=\"3\"><li>Now, let&#8217;s create a top <kbd>nav<\/kbd> component for all pages:<\/li><\/ol>\n\n\n\n<pre class=\"wp-block-code\"><code>      \/\/ components\/Nav.js\n      import React from \"react\";\n      import Link from 'next\/link';\n      import Btn from \".\/Btn\";\n\n      export default () => (\n          &lt;div>\n              &lt;Link href=\"\/\" passHref>&lt;Btn>Index&lt;\/Btn>&lt;\/Link>\n              &lt;Link href=\"\/second\" passHref>&lt;Btn>Second&lt;\/Btn>&lt;\/Link>\n          &lt;\/div>\n      );<\/code><\/pre>\n\n\n\n<ol start=\"4\"><li>And now, let&#8217;s use it in pages:<\/li><\/ol>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ pages\/index.js\n      import React from 'react';\n      import Nav from \"..\/components\/Nav\";\n\n      export default () => (\n          &lt;div>\n              &lt;Nav\/>\n              &lt;hr\/>\n              Index\n          &lt;\/div>\n      );\n\n      \/\/ pages\/second.js\n      import React from 'react';\n      import Nav from \"..\/components\/Nav\";\n\n      export default () => (\n          &lt;div>\n              &lt;Nav\/>\n              &lt;hr\/>\n              Second\n          &lt;\/div>\n      );      <\/code><\/pre>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Now that we know how to make Next.js routing, let&#8217;s make another page: This new page is accessible via http:\/\/localhost:3000\/second. Now, let&#8217;s add a link to that second page to the index page. If we use a simple &lt;a&gt; tag for this, it will work, of course, but it will perform a regular server request&hellip; <a class=\"more-link\" href=\"https:\/\/fullstack.smartstart.institute\/routing-2\/\">Continue reading <span class=\"screen-reader-text\">Routing<\/span><\/a><\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            30,
+            1
+        ],
+        "tags": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/4782"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/comments?post=4782"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 0,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/4782\/revisions"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/media?parent=4782"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/categories?post=4782"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/tags?post=4782"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 4784,
+        "date": "2020-09-07T11:27:09",
+        "date_gmt": "2020-09-07T11:27:09",
+        "guid": {
+            "rendered": "http:\/\/react.foobrdigital.com\/?p=2721"
+        },
+        "modified": "2020-09-07T11:27:09",
+        "modified_gmt": "2020-09-07T11:27:09",
+        "slug": "seo-friendly-urls",
+        "status": "publish",
+        "type": "post",
+        "link": "https:\/\/fullstack.smartstart.institute\/seo-friendly-urls\/",
+        "title": {
+            "rendered": "SEO Friendly URLs"
+        },
+        "content": {
+            "rendered": "\n<p>If you look at the location bar of the browser when you visit the second page, you&#8217;ll see something like&nbsp;<kbd>http:\/\/localhost:3000\/second?id=0<\/kbd>, which is fine, but not pretty enough. We can add some niceness to the URL schema that we use. This is optional, but it&#8217;s always good to have SEO-friendly URLs instead of query-string parameters.<\/p>\n\n\n\n<p>In order to do that, we should use a special as&nbsp;<kbd>prop<\/kbd> of the&nbsp;<kbd>Link<\/kbd> component:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>&lt;Link as={`\/post\/${index}`} href={{pathname: '\/second', query: {id: index}}}>\n    &lt;a>{post.title}&lt;\/a>\n&lt;\/Link><\/code><\/pre>\n\n\n\n<p>But, if you visit such a link and reload the page, you will see 404 Page Not Found error. Why is that? It&#8217;s because URL masking (a technology we just used) works on the client side at runtime, and when we reload the page we need to teach the server to work with such URLs.<\/p>\n\n\n\n<p>In order to do that, we will have to make a custom server. Luckily, Next.js offers useful tools to simplify this.<\/p>\n\n\n\n<p>Let&#8217;s start with installing Express:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>$ npm install --save-dev express<\/code><\/pre>\n\n\n\n<p>The server code should look like this:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code><\/code><\/pre>\n\n\n\n<p>The main thing in this code is the following code block:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>server.get('\/post\/:id', (req, res) => {\n    const actualPage = '\/second';\n    const queryParams = {id: req.params.id};\n    app.render(req, res, actualPage, queryParams);\n});<\/code><\/pre>\n\n\n\n<p>It uses a URL parser to figure out the URL param and provide it to the actual page as a query string param, which is understandable by the Next.js server-side renderer.<\/p>\n\n\n\n<p>In order to launch this as usual, we need to alter the&nbsp;<kbd>package.json&nbsp;<\/kbd>scripts section:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>{\n  \"scripts\": {\n    \"start\": \"node server.js\"\n  }\n}<\/code><\/pre>\n\n\n\n<p>Now, we run this as we did before:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>$ npm start<\/code><\/pre>\n\n\n\n<p>Then, we directly open a post,&nbsp;<kbd>http:\/\/localhost:3000\/post\/0<\/kbd> and, it will work as expected.<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>If you look at the location bar of the browser when you visit the second page, you&#8217;ll see something like&nbsp;http:\/\/localhost:3000\/second?id=0, which is fine, but not pretty enough. We can add some niceness to the URL schema that we use. This is optional, but it&#8217;s always good to have SEO-friendly URLs instead of query-string parameters. In&hellip; <a class=\"more-link\" href=\"https:\/\/fullstack.smartstart.institute\/seo-friendly-urls\/\">Continue reading <span class=\"screen-reader-text\">SEO Friendly URLs<\/span><\/a><\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            30,
+            1
+        ],
+        "tags": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/4784"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/comments?post=4784"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 0,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/4784\/revisions"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/media?parent=4784"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/categories?post=4784"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/tags?post=4784"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 4785,
+        "date": "2020-09-07T11:27:09",
+        "date_gmt": "2020-09-07T11:27:09",
+        "guid": {
+            "rendered": "http:\/\/react.foobrdigital.com\/?p=2723"
+        },
+        "modified": "2020-09-07T11:27:09",
+        "modified_gmt": "2020-09-07T11:27:09",
+        "slug": "lazy-loading-components",
+        "status": "publish",
+        "type": "post",
+        "link": "https:\/\/fullstack.smartstart.institute\/lazy-loading-components\/",
+        "title": {
+            "rendered": "Lazy Loading Components"
+        },
+        "content": {
+            "rendered": "\n<p>Even though Next.js can split your app into route-based asynchronously loaded chunks, it is always a good idea to split further if it is needed. The less unnecessary code the user loads up front, the better.<\/p>\n\n\n\n<p>The technique is very simple and completely supported by Next.js:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>import dynamic from 'next\/dynamic';<\/code><\/pre>\n\n\n\n<p>And then, anywhere on demand, we can do the loading:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>import dynamic from 'next\/dynamic'\n\nconst FooDynamic = dynamic(import('..\/components\/Foo'))\n\nexport default class Page extends React.Component {\n  \n  state = {show: false};\n  \n  show = () => this.setState({show: true});\n  \n  render() {\n    return (\n      this.state.show ? &lt;FooDynamic\/> : &lt;button onClick={this.show}>Show!&lt;\/button>\n    );\n  }\n\n}<\/code><\/pre>\n\n\n\n<p>Here, the component will not be loaded until it is actually placed on the page (that is, rendered).<\/p>\n\n\n\n<p>We can even define the dynamic component with a loader:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>const loading = () => &lt;div>Loading&lt;\/div>;\nconst FooDynamicLoader = dynamic(\n  import('..\/components\/Foo'),\n  {loading}\n);<\/code><\/pre>\n\n\n\n<p>Also, we can load multiple components at once:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>const Bundle = dynamic({\n  \/\/ you can add or remove components based on props\n  modules: props => ({\n    Foo: import('..\/components\/Foo'),\n    Bar: import('..\/components\/Bar')\n  }),\n  render: (props, {Foo, Bar}) => (\n    &lt;div>\n      &lt;h1>\n        {props.title}\n      &lt;\/h1>\n      &lt;Foo \/>\n      &lt;Bar \/>\n    &lt;\/div>\n  )\n});\n\nexport default () => (\n  &lt;Bundle title=\"Dynamic Bundle\" \/>);<\/code><\/pre>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Even though Next.js can split your app into route-based asynchronously loaded chunks, it is always a good idea to split further if it is needed. The less unnecessary code the user loads up front, the better. The technique is very simple and completely supported by Next.js: And then, anywhere on demand, we can do the&hellip; <a class=\"more-link\" href=\"https:\/\/fullstack.smartstart.institute\/lazy-loading-components\/\">Continue reading <span class=\"screen-reader-text\">Lazy Loading Components<\/span><\/a><\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            30,
+            1
+        ],
+        "tags": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/4785"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/comments?post=4785"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 0,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/4785\/revisions"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/media?parent=4785"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/categories?post=4785"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/tags?post=4785"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 4786,
+        "date": "2020-09-07T11:27:09",
+        "date_gmt": "2020-09-07T11:27:09",
+        "guid": {
+            "rendered": "http:\/\/react.foobrdigital.com\/?p=2725"
+        },
+        "modified": "2020-09-07T11:27:09",
+        "modified_gmt": "2020-09-07T11:27:09",
+        "slug": "styling-2",
+        "status": "publish",
+        "type": "post",
+        "link": "https:\/\/fullstack.smartstart.institute\/styling-2\/",
+        "title": {
+            "rendered": "Styling"
+        },
+        "content": {
+            "rendered": "\n<p>There are many ways a Next.js app can be styled.<\/p>\n\n\n\n<p>The simplest way is to use inline styles. Obviously, this is the worst possible way, but we&#8217;ll start small:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>const selectedStyles = {\n    fontWeight: 'bold'\n};\n\nconst regularStyles = {\n    fontWeight: 'normal'\n};\n\nconst Btn = ({href, onClick, children, pathname}) => (\n    &lt;button style={pathname === href ? selectedStyles : regularStyles}}>\n        {children}\n    &lt;\/button>\n);<\/code><\/pre>\n\n\n\n<p>Obviously, this does not scale at all. Luckily, Next.js offers a technique called JSS (one of many ways to have CSS in JS), and JSS can be used straight&nbsp;inside&nbsp;JSX to define styles:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ components\/button.js\nimport React from 'react';\nimport {withRouter} from 'next\/router';\n\nexport default withRouter(({href, onClick, children, router}) => (\n    &lt;span>\n        &lt;button onClick={onClick} \n                className={router.pathname === href ? 'current' : ''}>       \n            {children}\n        &lt;\/button>\n        &lt;style jsx>{`\n          button {\n            color: blue;\n            border: 1px solid;\n            cursor: pointer;\n          }\n\n          button:hover {\n            color: red;\n          }\n\n          button.current {\n            font-weight: bold;\n          }\n        `}&lt;\/style>\n    &lt;\/span>\n)); <\/code><\/pre>\n\n\n\n<p>This will create a scoped style sheet. If you want a global one, you should use <kbd>&lt;style jsx global&gt;<\/kbd>.<\/p>\n\n\n\n<p>There is another new technique for Next.js 5+, which allows us to extend configuration with Webpack loader plugins. Fine-tuned configuration will be covered in the next chapter, so here we will briefly show the simple CSS example:<\/p>\n\n\n\n<p>First, we need to install the plugin:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>npm i @zeit\/next-css --save-dev<\/code><\/pre>\n\n\n\n<p>Then, we should create a <kbd>next.config.js<\/kbd>&nbsp;file&nbsp;and add the following in there:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ \/next.config.js\nconst withCss = require('@zeit\/next-css');\nmodule.exports = withCss({});<\/code><\/pre>\n\n\n\n<p>In order to properly place styles on a page, we should add a custom document (this will be explained in further detail in the next chapter):<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ \/pages\/_document.js\nimport Document, {Head, Main, NextScript} from 'next\/document';\n\nexport default class MyDocument extends Document {\n    render() {\n        return (\n            &lt;html>\n            &lt;Head>\n                &lt;link rel=\"stylesheet\" href=\"\/_next\/static\/style.css\"\/>\n                &lt;title>NextJS Condensed&lt;\/title>\n            &lt;\/Head>\n            &lt;body>\n            &lt;Main\/>\n            &lt;NextScript\/>\n            &lt;\/body>\n            &lt;\/html>\n        )\n    }\n}<\/code><\/pre>\n\n\n\n<p>Now, we can import CSS files just like any other import in JS:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ \/pages\/nav.js\nimport React from \"react\";\nimport Btn from \".\/Btn\";\nimport Link from 'next\/link';\nimport '.\/Nav.css'; \/\/ the styles import\n\nexport default () => (\n    &lt;nav>\n        &lt;Link href=\"\/\" passHref>&lt;Btn>Index&lt;\/Btn>&lt;\/Link>\n        &lt;Link href=\"\/second\" passHref>&lt;Btn>Second&lt;\/Btn>&lt;\/Link>\n    &lt;\/nav>\n);<\/code><\/pre>\n\n\n\n<p>The style sheet itself is a regular CSS file:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>nav {\n    background: #f6f6f6;\n}<\/code><\/pre>\n\n\n\n<p>Now, when we reload the server, we will see the following on the page:<\/p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img src=\"https:\/\/react.foobrdigital.com\/wp-content\/uploads\/2020\/09\/d9ca6e98-5e8e-4e44-b340-81310beff4ca.png\" alt=\"\" class=\"wp-image-2726\"\/><\/figure>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>There are many ways a Next.js app can be styled. The simplest way is to use inline styles. Obviously, this is the worst possible way, but we&#8217;ll start small: Obviously, this does not scale at all. Luckily, Next.js offers a technique called JSS (one of many ways to have CSS in JS), and JSS can&hellip; <a class=\"more-link\" href=\"https:\/\/fullstack.smartstart.institute\/styling-2\/\">Continue reading <span class=\"screen-reader-text\">Styling<\/span><\/a><\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            30,
+            1
+        ],
+        "tags": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/4786"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/comments?post=4786"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 0,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/4786\/revisions"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/media?parent=4786"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/categories?post=4786"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/tags?post=4786"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 4787,
+        "date": "2020-09-07T11:27:09",
+        "date_gmt": "2020-09-07T11:27:09",
+        "guid": {
+            "rendered": "http:\/\/react.foobrdigital.com\/?p=2728"
+        },
+        "modified": "2020-09-07T11:27:09",
+        "modified_gmt": "2020-09-07T11:27:09",
+        "slug": "adding-media",
+        "status": "publish",
+        "type": "post",
+        "link": "https:\/\/fullstack.smartstart.institute\/adding-media\/",
+        "title": {
+            "rendered": "Adding Media"
+        },
+        "content": {
+            "rendered": "\n<p>Generally speaking, it&#8217;s better to refer to images from CSS so that the entire presentation layer is configured in one place. It&#8217;s usually a red flag when you want to insert an image in a JS component. We&#8217;re not talking about image URLs coming from API responses; those are always inserted dynamically.<\/p>\n\n\n\n<p>In this case, you should just refer to an image as you normally do. Next.js and Webpack will take care of this, and if the image is small enough, will even Base64-encode it and put it&nbsp;inline in CSS.<\/p>\n\n\n\n<p>As a quick reference, let&#8217;s add an icon to a <kbd>Nav<\/kbd> component:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ components\/Nav.css\n.logo-css {\n    background: url(\/static\/js.jpg) no-repeat center center;\n    background-size: cover;\n}\n.logo {\n    background: url(\/static\/js.jpg) no-repeat center center;\n    background-size: cover;\n}<\/code><\/pre>\n\n\n\n<p>We must place the image in the&nbsp;<kbd>static<\/kbd> folder, otherwise it will not work via regular CSS.<\/p>\n\n\n\n<p>Now, let&#8217;s add a <kbd>span<\/kbd> to the <kbd>Nav<\/kbd> component:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ components\/Nav.js\nexport default () => (\n    &lt;nav>\n        &lt;span className=\"logo logo-css\"\/>\n    &lt;\/nav>\n);<\/code><\/pre>\n\n\n\n<p>But, for those rare cases when we have to insert an image or any other media, Next.js provides a very easy and convenient way, as well via the static folder. Just add an image as you normally do in your HTML:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ components\/Nav.js\nexport default () => (\n    &lt;nav>\n        &lt;span className=\"logo logo-css\"\/>\n        &lt;img src='\/static\/js.png' className=\"logo\" alt=\"Logo\"\/>\n    &lt;\/nav>\n);<\/code><\/pre>\n\n\n\n<p>But, with Next.js 5, there is a more modern way to do this.<\/p>\n\n\n\n<p>We have to first install the plugin:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>$ npm install --save-dev next-images<\/code><\/pre>\n\n\n\n<p>Next, add the usage of the plugin to <kbd>next.config.js<\/kbd>:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>const withCss = require('@zeit\/next-css');\nconst withImages = require('next-images');\nmodule.exports = withImages(withCss({}));<\/code><\/pre>\n\n\n\n<p>And now, we can import an image like we import JS files. In this case, instead of real importing, only the pre-built URL will be imported:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ components\/Nav.js\n\/\/ ... previous imports\nimport PNG from '..\/static\/js.png';\n\nexport default () => (\n    &lt;nav>\n        &lt;span className=\"logo logo-css\"\/>\n        &lt;img src='\/static\/js.png' className=\"logo\" alt=\"Logo\"\/>\n        &lt;img src={PNG} className=\"logo\" alt=\"Logo\"\/>\n    &lt;\/nav>\n);<\/code><\/pre>\n\n\n\n<p>We can import any other media type exactly the same way, but for videos the static way is preferred.<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Generally speaking, it&#8217;s better to refer to images from CSS so that the entire presentation layer is configured in one place. It&#8217;s usually a red flag when you want to insert an image in a JS component. We&#8217;re not talking about image URLs coming from API responses; those are always inserted dynamically. In this case,&hellip; <a class=\"more-link\" href=\"https:\/\/fullstack.smartstart.institute\/adding-media\/\">Continue reading <span class=\"screen-reader-text\">Adding Media<\/span><\/a><\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            30,
+            1
+        ],
+        "tags": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/4787"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/comments?post=4787"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 0,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/4787\/revisions"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/media?parent=4787"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/categories?post=4787"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/tags?post=4787"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 4788,
+        "date": "2020-09-07T11:27:09",
+        "date_gmt": "2020-09-07T11:27:09",
+        "guid": {
+            "rendered": "http:\/\/react.foobrdigital.com\/?p=2730"
+        },
+        "modified": "2020-09-07T11:27:09",
+        "modified_gmt": "2020-09-07T11:27:09",
+        "slug": "special-pages",
+        "status": "publish",
+        "type": "post",
+        "link": "https:\/\/fullstack.smartstart.institute\/special-pages\/",
+        "title": {
+            "rendered": "Special Pages"
+        },
+        "content": {
+            "rendered": "\n<p>Next.js allows us to affect the way a website will be rendered by placing special handlers for certain items.<\/p>\n\n\n\n<p>The first one is <kbd>pages\/_document.js<\/kbd>, which allows us to define the surroundings of the page, such as the <em>Head<\/em>&nbsp;section. This could be useful to change the page title, add meta information or styles, and so on.<\/p>\n\n\n\n<p>Here is a minimal example:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ pages\/_document.js\nimport Document, {Head, Main, NextScript} from 'next\/document';\n\nexport default class MyDocument extends Document {\n    render() {\n        return (\n            &lt;html>\n            &lt;Head>\n                &lt;title>NextJS Condensed&lt;\/title>\n            &lt;\/Head>\n            &lt;body>\n            &lt;Main\/>\n            &lt;NextScript\/>\n            &lt;\/body>\n            &lt;\/html>\n        )\n    }\n}<\/code><\/pre>\n\n\n\n<p>In this example, we&#8217;ve configured the very basic surroundings of the actual markup that will be injected in the page straight in the <kbd>body<\/kbd> tag; also, we&#8217;ve added a <kbd>title<\/kbd> to the custom <kbd>Head<\/kbd> component.<\/p>\n\n\n\n<p>The next special handler is <kbd>pages\/_app.js<\/kbd>, which allows us to wrap ALL pages (including the error) in a special wrapper. You can use it to create layout or do things on the site level, for example to persist layout, store some state between page changes (such as logged in user information, or some global menu state, or anything that has to be displayed in more than one page), or perform&nbsp;&nbsp;<kbd>componentDidCatch<\/kbd>&nbsp; (this will be explained later). Here is an example:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ pages\/_app.js\nimport App, {Container} from 'next\/app';\nimport React from 'react';\n\nexport default class MyApp extends App {\n\n  static async getInitialProps ({ Component, router, ctx }) {\n    let pageProps = {};\n    if (Component.getInitialProps) pageProps = await Component.getInitialProps(ctx);\n    return {pageProps};\n  }\n\n  state = {foo: ''};\n\n  setFoo = (foo) => this.setState({foo});\n\n  render () {\n    const {Component, pageProps} = this.props\n    return (&lt;Container>\n      &lt;Component {...pageProps} foo={this.state.foo} setFoo={this.setFoo}\/>\n    &lt;\/Container>);\n  }\n\n}<\/code><\/pre>\n\n\n\n<p>The next one is the default 404 or 500 error handler,&nbsp;<kbd>pages\/_error.js<\/kbd>&nbsp; (we will talk more about it in the following chapters; for now, let&#8217;s just make a note that it exists):<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ pages\/_error.js\nimport React from 'react'\n\nexport default class Error extends React.Component {\n  static getInitialProps({ res, err }) {\n    const statusCode = res ? res.statusCode : err ? err.statusCode : null;\n    return { statusCode }\n  }\n\n  render() {\n    return (\n      &lt;p>\n        {this.props.statusCode\n          ? `An error ${this.props.statusCode} occurred on server`\n          : 'An error occurred on client'}\n      &lt;\/p>\n    )\n  }\n}<\/code><\/pre>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Next.js allows us to affect the way a website will be rendered by placing special handlers for certain items. The first one is pages\/_document.js, which allows us to define the surroundings of the page, such as the Head&nbsp;section. This could be useful to change the page title, add meta information or styles, and so on.&hellip; <a class=\"more-link\" href=\"https:\/\/fullstack.smartstart.institute\/special-pages\/\">Continue reading <span class=\"screen-reader-text\">Special Pages<\/span><\/a><\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            30,
+            1
+        ],
+        "tags": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/4788"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/comments?post=4788"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 0,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/4788\/revisions"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/media?parent=4788"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/categories?post=4788"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/tags?post=4788"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 4789,
+        "date": "2020-09-07T15:25:21",
+        "date_gmt": "2020-09-07T15:25:21",
+        "guid": {
+            "rendered": "http:\/\/react.foobrdigital.com\/?p=2733"
+        },
+        "modified": "2020-09-07T15:25:21",
+        "modified_gmt": "2020-09-07T15:25:21",
+        "slug": "configuring-next-js",
+        "status": "publish",
+        "type": "post",
+        "link": "https:\/\/fullstack.smartstart.institute\/configuring-next-js\/",
+        "title": {
+            "rendered": "Configuring Next.js"
+        },
+        "content": {
+            "rendered": "\n<p>In a nutshell, all Next.js&nbsp;configurations are done via&nbsp;<kbd>next.config.js<\/kbd>. With Next.js 5, this became even easier.<\/p>\n\n\n\n<p>Let&#8217;s create an empty project for experiments:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>$ npm init\n$ npm install react react-dom<\/code><\/pre>\n\n\n\n<p>Let&#8217;s add <kbd>SASS<\/kbd> support as an example:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>$ npm install next node-sass @zeit\/next-sass --save-dev<\/code><\/pre>\n\n\n\n<p>Enhance the <kbd>scripts<\/kbd> section of <kbd>package.json<\/kbd>:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ package.json\n{\n    \"scripts\": {\n        \"start\": \"next\"\n    }\n}<\/code><\/pre>\n\n\n\n<p>Next, we again have to create a custom document (the same as before):<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ pages\/_document.js\nimport Document, {Head, Main, NextScript} from 'next\/document';\n\nexport default class MyDocument extends Document {\n    render() {\n        return (\n            &lt;html>\n            &lt;Head>\n                &lt;title>NextJS Condensed&lt;\/title>\n                &lt;link rel=\"stylesheet\" href=\"\/_next\/static\/style.css\"\/>\n            &lt;\/Head>\n            &lt;body>\n            &lt;Main\/>\n            &lt;NextScript\/>\n            &lt;\/body>\n            &lt;\/html>\n        )\n    }\n}<\/code><\/pre>\n\n\n\n<p>We&#8217;re using the Next.js proprietary URL prefix for static files,&nbsp;<kbd>\/_next\/static\/<\/kbd>, which is a default functionality.<\/p>\n\n\n\n<p>Now, let&#8217;s create a stylesheet using <kbd>SASS<\/kbd>:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ pages\/index.sass\nbody\n  font-family: Arial, sans-serif\n  font-size: 12px<\/code><\/pre>\n\n\n\n<p>And, let&#8217;s create an index page:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ pages\/index.js\nimport React from 'react';\nimport \".\/index.sass\";\n\nexport default () => (\n    &lt;div>\n        Styled text\n    &lt;\/div>\n);<\/code><\/pre>\n\n\n\n<p>We have to import <kbd>.\/index.sass<\/kbd> in order to connect the stylesheet as a module to our system. All the styles will be rendered to the&nbsp;<kbd>\/_next\/static\/style.css<\/kbd> file.<\/p>\n\n\n\n<p>We have to add support for Sass to Next.js; this is done via <kbd>config<\/kbd>:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ next.config.js\nconst withSass = require('@zeit\/next-sass')\nmodule.exports = withSass()<\/code><\/pre>\n\n\n\n<p>Now, let&#8217;s run the dev server:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>$ npm start<\/code><\/pre>\n\n\n\n<p>If you open <kbd>http:\/\/localhost:3000<\/kbd> in the browser, you will see&nbsp;text&nbsp;styled as expected:<\/p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img src=\"https:\/\/react.foobrdigital.com\/wp-content\/uploads\/2020\/09\/360e8485-5179-45e1-8db8-f4fc2f507c31.png\" alt=\"\" class=\"wp-image-2735\"\/><\/figure>\n\n\n\n<p>Another useful thing is the configuration of the <kbd>build\/dev<\/kbd> phases via <kbd>custom config<\/kbd>.<\/p>\n\n\n\n<p>To do that, you can use the following template:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ next.config.js\nconst withSass = require('@zeit\/next-sass');\n\nconst {PHASE_DEVELOPMENT_SERVER} = require('next\/constants');\n\nmodule.exports = (phase, {defaultConfig}) => {\n\n    if(phase === PHASE_DEVELOPMENT_SERVER) {\n        return withSass(defaultConfig);\n    }\n\n    return withSass(Object.assign({}, defaultConfig, {\n        distDir: 'build-custom'\n    }));\n\n};<\/code><\/pre>\n\n\n\n<p>In this example, we have added SASS support, along with more granular control over the production build. Here, we have set the destination directory to <kbd>build-custom<\/kbd>. The function receives <kbd>phase<\/kbd> and the <kbd>defaultConfig<\/kbd> as arguments, and you can use <kbd>phase<\/kbd> to determine what has to be modified in <kbd>defaultConfig<\/kbd>, based on your preferences.<\/p>\n\n\n\n<p>Here, <kbd>config<\/kbd> also allows us to expose variables to your pages at runtime:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ next.config.js\nmodule.exports = {\n  serverRuntimeConfig: {\n    serverOnly: 'secret' \/\/ no special meaning, just a hint that it's not visible at the client\n  },\n  publicRuntimeConfig: {\n    serverAndClient: 'public' \/\/ this will be visible on client\n  }\n};<\/code><\/pre>\n\n\n\n<p>You may use them as follows:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/\/ pages\/index.js\nimport React from 'react';\nimport getConfig from 'next\/config'\nimport \".\/index.sass\";\n\nconst {serverRuntimeConfig, publicRuntimeConfig} = getConfig();\n\nconsole.log({serverRuntimeConfig, publicRuntimeConfig});\n\nexport default () => (\n    &lt;div>\n        Styled text\n        &lt;pre>{JSON.stringify(serverRuntimeConfig, null, 2)}&lt;\/pre>\n        &lt;pre>{JSON.stringify(publicRuntimeConfig, null, 2)}&lt;\/pre>\n    &lt;\/div>\n);<\/code><\/pre>\n\n\n\n<p>One potential use of this pattern is to hide some server-specific variables such as access tokens or anything sensitive. Two separate sections of config give a clear understanding of its visibility.<\/p>\n\n\n\n<p>Now, restart the dev server, open the browser and console, and load <kbd>http:\/\/localhost:3000<\/kbd>; you will see the following:<\/p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img src=\"https:\/\/react.foobrdigital.com\/wp-content\/uploads\/2020\/09\/7e695293-23bf-4f00-93b6-85376cc9428a.png\" alt=\"\" class=\"wp-image-2736\"\/><\/figure>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>In a nutshell, all Next.js&nbsp;configurations are done via&nbsp;next.config.js. With Next.js 5, this became even easier. Let&#8217;s create an empty project for experiments: Let&#8217;s add SASS support as an example: Enhance the scripts section of package.json: Next, we again have to create a custom document (the same as before): We&#8217;re using the Next.js proprietary URL prefix&hellip; <a class=\"more-link\" href=\"https:\/\/fullstack.smartstart.institute\/configuring-next-js\/\">Continue reading <span class=\"screen-reader-text\">Configuring Next.js<\/span><\/a><\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            30,
+            1
+        ],
+        "tags": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/4789"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/comments?post=4789"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 0,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/4789\/revisions"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/media?parent=4789"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/categories?post=4789"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/tags?post=4789"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 4790,
+        "date": "2020-09-07T15:26:58",
+        "date_gmt": "2020-09-07T15:26:58",
+        "guid": {
+            "rendered": "http:\/\/react.foobrdigital.com\/?p=2738"
+        },
+        "modified": "2020-09-07T15:26:58",
+        "modified_gmt": "2020-09-07T15:26:58",
+        "slug": "configuring-webpack",
+        "status": "publish",
+        "type": "post",
+        "link": "https:\/\/fullstack.smartstart.institute\/configuring-webpack\/",
+        "title": {
+            "rendered": "Configuring Webpack"
+        },
+        "content": {
+            "rendered": "\n<p>Webpack is the bundler used to produce the Next.js&nbsp;dev server and builds. It can be configured to bundle more things than by default. As an example, let&#8217;s add TypeScript.<\/p>\n\n\n\n<p>Create <kbd>tsconfig.json<\/kbd>:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>{\n  \"compileOnSave\": false,\n  \"compilerOptions\": {\n    \"allowSyntheticDefaultImports\": true,\n    \"baseUrl\": \".\",\n    \"jsx\": \"preserve\",\n    \"lib\": &#91;\n      \"dom\",\n      \"es2015\",\n      \"es2016\"\n    ],\n    \"module\": \"esnext\",\n    \"moduleResolution\": \"node\",\n    \"sourceMap\": true,\n    \"skipLibCheck\": true,\n    \"target\": \"esnext\",\n    \"typeRoots\": &#91;\n      \".\/node_modules\/@types\"\n    ]\n  }\n}<\/code><\/pre>\n\n\n\n<p>We need to install the required packages (loader, compiler, and typings):<\/p>\n\n\n\n<pre class=\"wp-block-preformatted\"><strong>$ npm install ts-loader@3 typescript @types\/react @types\/next --save-dev<\/strong><\/pre>\n\n\n\n<p>As of Next 5.0.1, TS Loader should be from the 3.x branch, because Next works on Webpack 3.<\/p>\n\n\n\n<p>Next, modify the <kbd>config<\/kbd>:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>module.exports = {\n  webpack(config, {dir, defaultLoaders}) {\n    config.module.rules.push({ \/\/ add a custom loader rule\n      test: \/\\.+(ts|tsx)$\/, \/\/ apply this rule only to TS&#91;X] files\n      use: &#91;\n        defaultLoaders.babel, \/\/ we use default babel on top of TS\n        {\n          loader: 'ts-loader',\n          options: {transpileOnly: true}\n        }\n      ],\n      include: &#91;dir],\n      exclude: \/node_modules\/ \/\/ exclude everything from node_modules for performance\n    });\n    config.resolve.extensions.push('.ts', '.tsx'); \/\/ register require resolve extensions\n    return config;\n  }\n};<\/code><\/pre>\n\n\n\n<p>Rename your <kbd>pages\/index.js<\/kbd> to <kbd>pages\/index.tsx<\/kbd>&nbsp;and leave the contents as is; JS is a valid TS as well.<\/p>\n\n\n\n<p>Now, since we know how to do it from the ground up, let&#8217;s take a look at some established practices, for example via&nbsp;a plugin:<\/p>\n\n\n\n<pre class=\"wp-block-preformatted\"><strong>$ npm install @zeit\/next-typescript @types\/react @types\/next --save-dev<\/strong><\/pre>\n\n\n\n<p>Then, your <kbd>next.config.js<\/kbd> will look a lot simpler:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>const withTypescript = require('@zeit\/next-typescript');\nmodule.exports = withTypescript({});<\/code><\/pre>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Webpack is the bundler used to produce the Next.js&nbsp;dev server and builds. It can be configured to bundle more things than by default. As an example, let&#8217;s add TypeScript. Create tsconfig.json: We need to install the required packages (loader, compiler, and typings): $ npm install ts-loader@3 typescript @types\/react @types\/next &#8211;save-dev As of Next 5.0.1, TS&hellip; <a class=\"more-link\" href=\"https:\/\/fullstack.smartstart.institute\/configuring-webpack\/\">Continue reading <span class=\"screen-reader-text\">Configuring Webpack<\/span><\/a><\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            30
+        ],
+        "tags": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/4790"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/types\/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/comments?post=4790"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 0,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/posts\/4790\/revisions"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/media?parent=4790"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/categories?post=4790"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "https:\/\/fullstack.smartstart.institute\/wp-json\/wp\/v2\/tags?post=4790"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    }
+]
